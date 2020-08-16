@@ -253,6 +253,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MenuMaker.Business\MenuMaker.Business.csproj">
+      <Project>{ad7bcbca-2af9-43d8-ba8f-aa6785aebe53}</Project>
+      <Name>MenuMaker.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MenuMaker.Data\MenuMaker.Data.csproj">
       <Project>{9D76D7CD-6B99-46F4-BB7A-092244495CB3}</Project>
       <Name>MenuMaker.Data</Name>

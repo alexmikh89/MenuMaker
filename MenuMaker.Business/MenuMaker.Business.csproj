@@ -43,5 +43,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MenuMaker.Data\MenuMaker.Data.csproj">
+      <Project>{9d76d7cd-6b99-46f4-bb7a-092244495cb3}</Project>
+      <Name>MenuMaker.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
