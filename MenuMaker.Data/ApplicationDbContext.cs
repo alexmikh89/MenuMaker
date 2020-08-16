@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using MenuMaker.Data.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace MenuMaker.Data
 {
@@ -8,6 +10,9 @@ namespace MenuMaker.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Ingridient> Ingridients { get; set; }
 
         public static ApplicationDbContext Create()
         {

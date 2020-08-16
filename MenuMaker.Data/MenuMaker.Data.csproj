@@ -62,7 +62,7 @@
       <DependentUpon>202008160934166_Initial_Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\Ingridient.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RolesInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
