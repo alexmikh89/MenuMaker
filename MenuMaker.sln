@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuMaker", "MenuMaker\MenuMaker.csproj", "{3A1CD6AD-0C51-41BC-9B8F-3822C790158F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuMaker.Data", "MenuMaker.Data\MenuMaker.Data.csproj", "{9D76D7CD-6B99-46F4-BB7A-092244495CB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3A1CD6AD-0C51-41BC-9B8F-3822C790158F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A1CD6AD-0C51-41BC-9B8F-3822C790158F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A1CD6AD-0C51-41BC-9B8F-3822C790158F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D76D7CD-6B99-46F4-BB7A-092244495CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D76D7CD-6B99-46F4-BB7A-092244495CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D76D7CD-6B99-46F4-BB7A-092244495CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D76D7CD-6B99-46F4-BB7A-092244495CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
