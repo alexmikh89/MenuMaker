@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202008160934166_Initial_Create.Designer.cs">
       <DependentUpon>202008160934166_Initial_Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008161722116_Add_DbSet_Recipes_and_DbSet_Ingridients.cs" />
+    <Compile Include="Migrations\202008161722116_Add_DbSet_Recipes_and_DbSet_Ingridients.Designer.cs">
+      <DependentUpon>202008161722116_Add_DbSet_Recipes_and_DbSet_Ingridients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingridient.cs" />
     <Compile Include="Models\Recipe.cs" />
@@ -75,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008160934166_Initial_Create.resx">
       <DependentUpon>202008160934166_Initial_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161722116_Add_DbSet_Recipes_and_DbSet_Ingridients.resx">
+      <DependentUpon>202008161722116_Add_DbSet_Recipes_and_DbSet_Ingridients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
