@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using MenuMaker.Data.Models;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(MenuMaker.Startup))]
@@ -9,6 +10,7 @@ namespace MenuMaker
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            RolesInitializer.Initialize();
         }
     }
 }
