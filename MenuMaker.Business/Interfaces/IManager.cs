@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace MenuMaker.Business.Interfaces
 {
-    public interface IManager<TEntityModel> where TEntityModel : class
+    public interface IManager<DbEntity, EntityModel> 
+        where EntityModel : class
+        where DbEntity :class
     {
-        void Create(TEntityModel entity);
-        TEntityModel FindById(int id);
-        IEnumerable<TEntityModel> GetAll();
-        IEnumerable<TEntityModel> GetAll(Func<TEntityModel, bool> func);
+        void Create(EntityModel entity);
+        EntityModel FindById(int id);
+        IEnumerable<EntityModel> GetAll();
+        IEnumerable<EntityModel> GetAll(Func<EntityModel, bool> func);
         void Remove();
-        void Update(TEntityModel entity);
+        void Update(EntityModel entity);
     }
 }
