@@ -28,13 +28,13 @@ namespace MenuMaker.Data.Repositories
             return _dbSet.Find(id);
         }
 
-        public IEnumerable<TEntity> GetEntities()
+        public IEnumerable<TEntity> GetAll()
         {
             var result = _dbSet.AsNoTracking().ToList();
             return result;
         }
 
-        public IEnumerable<TEntity> GetEntities(Func<TEntity, bool> func)
+        public IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
         {
             var result = _dbSet.AsNoTracking().Where(func).ToList();
             return result;
