@@ -7,8 +7,8 @@ namespace MenuMaker.Data.Interfaces
     {
         void Create(TEntity entity);
         TEntity FindById(int id);
-        IEnumerable<TEntity> GetEntities();
-        IEnumerable<TEntity> GetEntities(Func<TEntity, bool> func);
+        IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> GetAll(Func<TEntity, bool> func);
         void Remove(TEntity entity);
         void Update(TEntity entity);
     }
