@@ -9,7 +9,7 @@ namespace MenuMaker.Data.Interfaces
         TEntity FindById(int id);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> GetAll(Func<TEntity, bool> func);
-        void Remove(TEntity entity);
+        void Remove(int id);
         void Update(TEntity entity);
     }
 }

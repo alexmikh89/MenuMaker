@@ -40,9 +40,10 @@ namespace MenuMaker.Data.Repositories
             return result;
         }
 
-        public void Remove(TEntity entity)
+        public void Remove(int id)
         {
-            _dbSet.Remove(entity);
+            var entityToRemove = _dbSet.Find(id);
+            _dbSet.Remove(entityToRemove);
             _context.SaveChanges();
         }
 
