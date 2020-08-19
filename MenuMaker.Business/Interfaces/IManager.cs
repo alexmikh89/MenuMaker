@@ -7,11 +7,11 @@ namespace MenuMaker.Business.Interfaces
         where EntityModel : class
         where DbEntity :class
     {
-        void Create(EntityModel entity);
+        void Create(EntityModel  entityModel);
         EntityModel FindById(int id);
         IEnumerable<EntityModel> GetAll();
         IEnumerable<EntityModel> GetAll(Func<EntityModel, bool> func);
-        void Remove();
-        void Update(EntityModel entity);
+        void Remove(int id);
+        void Update(EntityModel  entityModel);
     }
 }
