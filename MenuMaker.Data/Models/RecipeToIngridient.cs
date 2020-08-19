@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Models
 {
-    public class RecipeToIngridient
+    public class RecipesToIngridients
     {
         public int Id { get; set; }
         public Recipe Recipe { get; set; }
