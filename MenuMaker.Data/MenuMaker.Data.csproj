@@ -69,10 +69,14 @@
     <Compile Include="Migrations\202008191618584_Add_RecipesToIngridients.Designer.cs">
       <DependentUpon>202008191618584_Add_RecipesToIngridients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008212021433_renamed_Ingredients.cs" />
+    <Compile Include="Migrations\202008212021433_renamed_Ingredients.Designer.cs">
+      <DependentUpon>202008212021433_renamed_Ingredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Ingridient.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Recipe.cs" />
-    <Compile Include="Models\RecipeToIngridient.cs" />
+    <Compile Include="Models\RecipeToIngredient.cs" />
     <Compile Include="Models\RolesInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008191618584_Add_RecipesToIngridients.resx">
       <DependentUpon>202008191618584_Add_RecipesToIngridients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008212021433_renamed_Ingredients.resx">
+      <DependentUpon>202008212021433_renamed_Ingredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

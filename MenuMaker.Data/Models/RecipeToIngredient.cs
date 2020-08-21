@@ -10,7 +10,7 @@ namespace MenuMaker.Data.Models
     {
         public int Id { get; set; }
         public Recipe Recipe { get; set; }
-        public Ingridient Ingridient { get; set; }
+        public Ingredient Ingridient { get; set; }
         public double Amount { get; set; }
     }
 }

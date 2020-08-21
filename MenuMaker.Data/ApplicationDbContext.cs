@@ -12,7 +12,7 @@ namespace MenuMaker.Data
         }
 
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Ingridient> Ingridients { get; set; }
+        public DbSet<Ingredient> Ingridients { get; set; }
         public DbSet<RecipesToIngridients> RecipesToIngridients { get; set; }
 
         public static ApplicationDbContext Create()
