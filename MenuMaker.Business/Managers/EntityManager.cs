@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Data.Interfaces;
+using MenuMaker.Data.Repositories;
 using System;
 using System.Collections.Generic;
 
@@ -13,9 +14,9 @@ namespace MenuMaker.Business.Managers
         private readonly IRepository<Entity> _repository;
         private readonly Mapper _mapper;
 
-        public EntityManager(IRepository<Entity> repository)
+        public EntityManager()
         {
-            _repository = repository;
+            this._repository = new BaseRepository<Entity>(new Data.ApplicationDbContext());
             var mapConfig = new MapperConfiguration(c =>
             {
                 c.CreateMap<Entity, EntityModel>().ReverseMap();
