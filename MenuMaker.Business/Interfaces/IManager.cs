@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MenuMaker.Business.Interfaces
 {
-    public interface IManager<DbEntity, EntityModel>
+    public interface IEntityManager<DbEntity, EntityModel>
         where EntityModel : class
         where DbEntity : class
     {

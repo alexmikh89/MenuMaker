@@ -16,7 +16,7 @@ namespace MenuMaker.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IManager<Ingredient, IngredientModel> _ingridientManager;
+        private readonly IEntityManager<Ingredient, IngredientModel> _ingridientManager;
         private readonly Mapper _mapper;
         public HomeController()
         {
@@ -44,6 +44,7 @@ namespace MenuMaker.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult GetIngredients()
         {
             var listOfIngredientsModels = _ingridientManager.GetAll();

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace MenuMaker.Business.Managers
 {
-    public class EntityManager<Entity, EntityModel> : IManager<Entity, EntityModel>
+    public class EntityManager<Entity, EntityModel> : IEntityManager<Entity, EntityModel>
         where Entity : class
         where EntityModel : class
     {
