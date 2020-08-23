@@ -2,14 +2,9 @@
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Managers;
 using MenuMaker.Business.Models;
-using MenuMaker.Data;
 using MenuMaker.Data.Models;
-using MenuMaker.Data.Repositories;
 using MenuMaker.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
@@ -24,7 +19,7 @@ namespace MenuMaker.Controllers
             var mapConfig = new MapperConfiguration(c => c.CreateMap<IngredientModel, IngredientViewModel>());
             _mapper = new Mapper(mapConfig);
         }
-        
+
         public ActionResult Index()
         {
             return View();
@@ -44,11 +39,11 @@ namespace MenuMaker.Controllers
             return View();
         }
 
-        [Authorize]
+       
         public ActionResult GetIngredients()
         {
             var listOfIngredientsModels = _ingridientManager.GetAll();
-           var listOfIngredientsViewModels =  _mapper.Map<IList<IngredientViewModel>>(listOfIngredientsModels);
+            var listOfIngredientsViewModels = _mapper.Map<IList<IngredientViewModel>>(listOfIngredientsModels);
 
             return View(listOfIngredientsViewModels);
         }
