@@ -19,25 +19,70 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <img height="23" width="23" src="~/Images/homeButton.png" title="title" alt="additional title" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    
+                    <li>
+                        <div class="my-dropdown">
+                            <button class="my-dropbtn">
+                                Menues
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="my-dropdown-content">
+                                <a>View all</a>
+                                <a href="#">Favorite</a>
+                                <a href="#">Add new</a>
+                                <a href="#">My menues</a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="my-dropdown">
+                            <button class="my-dropbtn">
+                                Recepies
+                            </button>
+                            <div class="my-dropdown-content">
+                                <a href="#">View all</a>
+                                <a href="#">Favorite</a>
+                                <a href="#">Add new</a>
+                                <a href="#">My recepies</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="my-dropdown">
+                            <button class="my-dropbtn">
+                                Ingredients
+                            </button>
+                            <div class="my-dropdown-content">
+                                @Html.ActionLink("View all", "Index", "IngredientViewModels")
+                                <a href="#">My ingredients</a>
+                                @Html.ActionLink("Add new", "Create", "IngredientViewModels")
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="my-dropdown">
+                            <button class="my-dropbtn">
+                                Users
+                            </button>
+                            <div class="my-dropdown-content">
+                                <a href="#">Change user's role</a>
+                                <a href="#">Remove user</a>
+                                <a href="#">Ban user</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <div class="my-dropdown">
-                    <button class="my-dropbtn">
-                        Dropdown
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="my-dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </div>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

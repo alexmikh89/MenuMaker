@@ -23,7 +23,7 @@ namespace MenuMaker.Data.Repositories
             _context.SaveChanges();
         }
 
-        public TEntity FindById(int id)
+        public TEntity FindById(int? id)
         {
             return _dbSet.Find(id);
         }
@@ -40,7 +40,7 @@ namespace MenuMaker.Data.Repositories
             return result;
         }
 
-        public void Remove(int id)
+        public void Remove(int? id)
         {
             var entityToRemove = _dbSet.Find(id);
             _dbSet.Remove(entityToRemove);

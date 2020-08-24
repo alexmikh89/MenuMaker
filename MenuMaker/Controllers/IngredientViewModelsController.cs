@@ -18,7 +18,7 @@ namespace MenuMaker.Controllers
         public IngredientViewModelsController()
         {
             _ingridientManager = new EntityManager<Ingredient, IngredientModel>();
-            var mapConfig = new MapperConfiguration(c => c.CreateMap<IngredientModel, IngredientViewModel>());
+            var mapConfig = new MapperConfiguration(c => c.CreateMap<IngredientModel, IngredientViewModel>().ReverseMap());
             _mapper = new Mapper(mapConfig);
         }
 
@@ -38,13 +38,15 @@ namespace MenuMaker.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var ingredientToView = _ingridientManager.FindById(id);
+            var ingredientModel = _ingridientManager.FindById(id);            
 
-            if (ingredientToView == null)
+            if (ingredientModel == null)
             {
                 return HttpNotFound();
             }
-            return View(ingredientToView);
+
+            var ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
+            return View(ingredientViewModel);
         }
 
         // GET: IngredientViewModels/Create
