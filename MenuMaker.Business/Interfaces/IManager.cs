@@ -8,10 +8,10 @@ namespace MenuMaker.Business.Interfaces
         where DbEntity : class
     {
         void Create(EntityModel entityModel);
-        EntityModel FindById(int id);
+        EntityModel FindById(int? id);
         IEnumerable<EntityModel> GetAll();
         IEnumerable<EntityModel> GetAll(Func<EntityModel, bool> func);
-        void Remove(int id);
+        void Remove(int? id);
         void Update(EntityModel entityModel);
     }
 }

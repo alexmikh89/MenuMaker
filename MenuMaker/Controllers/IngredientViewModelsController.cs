@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Managers;
 using MenuMaker.Business.Models;
-using MenuMaker.Data;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
