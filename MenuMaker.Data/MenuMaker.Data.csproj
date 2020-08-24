@@ -73,6 +73,10 @@
     <Compile Include="Migrations\202008212021433_renamed_Ingredients.Designer.cs">
       <DependentUpon>202008212021433_renamed_Ingredients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008241750545_Many_to_many_relationShip_added.cs" />
+    <Compile Include="Migrations\202008241750545_Many_to_many_relationShip_added.Designer.cs">
+      <DependentUpon>202008241750545_Many_to_many_relationShip_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Recipe.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008212021433_renamed_Ingredients.resx">
       <DependentUpon>202008212021433_renamed_Ingredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008241750545_Many_to_many_relationShip_added.resx">
+      <DependentUpon>202008241750545_Many_to_many_relationShip_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,5 +11,12 @@ namespace MenuMaker.Data.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public virtual ICollection<Recipe> Recipes { get; set; }
+
+        public Ingredient()
+        {
+            Recipes = new List<Recipe>();
+        }
     }
 }
