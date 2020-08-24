@@ -31,7 +31,7 @@ namespace MenuMaker.Business.Managers
             _repository.Create(dbEntity);
         }
 
-        public EntityModel FindById(int id)
+        public EntityModel FindById(int? id)
         {
             var dbEntity = _repository.FindById(id);
             return _mapper.Map<EntityModel>(dbEntity);
@@ -52,7 +52,7 @@ namespace MenuMaker.Business.Managers
             return listOfEntityModels;
         }
 
-        public void Remove(int id)
+        public void Remove(int? id)
         {
             _repository.Remove(id);
         }
