@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace MenuMaker.Models
 {
@@ -9,5 +6,7 @@ namespace MenuMaker.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public virtual ICollection<RecipeIngredientsViewModel> RecipeIngredientsViewModels { get; set; }
+
     }
 }
