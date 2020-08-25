@@ -10,10 +10,11 @@ namespace MenuMaker.Data.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<RecipeIngridients> RecipeIngridients { get; set; }
+
         public Recipe()
         {
-            Ingredients = new List<Ingredient>();
+            RecipeIngridients = new List<RecipeIngridients>();
         }
     }
 }
