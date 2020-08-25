@@ -48,6 +48,7 @@
     <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\RecipeIngredientsModel.cs" />
+    <Compile Include="Models\RecipeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
