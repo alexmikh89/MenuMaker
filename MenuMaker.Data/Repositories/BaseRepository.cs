@@ -8,49 +8,65 @@ namespace MenuMaker.Data.Repositories
 {
     public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly ApplicationDbContext _context;
-        private readonly DbSet<TEntity> _dbSet;
-
-        public BaseRepository(ApplicationDbContext context)
-        {
-            _context = context;
-            _dbSet = context.Set<TEntity>();
-        }
+        public BaseRepository() { }
 
         public void Create(TEntity entity)
         {
-            _dbSet.Add(entity);
-            _context.SaveChanges();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                dbSet.Add(entity);
+                ctx.SaveChanges();
+            }
         }
 
         public TEntity FindById(int? id)
         {
-            return _dbSet.Find(id);
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                return dbSet.Find(id);
+            }
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            var result = _dbSet.AsNoTracking().ToList();
-            return result;
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var result = dbSet.AsNoTracking().ToList();
+                return result;
+            }
         }
 
         public IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
         {
-            var result = _dbSet.AsNoTracking().Where(func).ToList();
-            return result;
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var result = dbSet.AsNoTracking().Where(func).ToList();
+                return result;
+            }
         }
 
         public void Remove(int? id)
         {
-            var entityToRemove = _dbSet.Find(id);
-            _dbSet.Remove(entityToRemove);
-            _context.SaveChanges();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var entityToRemove = dbSet.Find(id);
+                dbSet.Remove(entityToRemove);
+                ctx.SaveChanges();
+            }
         }
 
         public void Update(TEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            _context.SaveChanges();
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Entry(entity).State = EntityState.Modified;
+                ctx.SaveChanges();
+            }
         }
     }
 }

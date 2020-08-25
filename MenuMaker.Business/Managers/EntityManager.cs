@@ -16,7 +16,7 @@ namespace MenuMaker.Business.Managers
 
         public EntityManager()
         {
-            _repository = new BaseRepository<Entity>(new Data.ApplicationDbContext());
+            _repository = new BaseRepository<Entity>();
             var mapConfig = new MapperConfiguration(c =>
             {
                 c.CreateMap<Entity, EntityModel>().ReverseMap();

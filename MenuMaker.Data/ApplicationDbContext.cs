@@ -6,14 +6,16 @@ namespace MenuMaker.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Ingredient> Ingridients { get; set; }
+        public DbSet<RecipeIngridients> RecipeIngridients { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Ingredient> Ingridients { get; set; }
-        public DbSet<RecipeIngridients> RecipeIngridients { get; set; }
 
         public static ApplicationDbContext Create()
         {
