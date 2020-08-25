@@ -13,13 +13,12 @@ namespace MenuMaker.Controllers
     public class IngredientViewModelsController : Controller
     {
         private readonly IEntityManager<Ingredient, IngredientModel> _ingridientManager;
-        private readonly Mapper _mapper;
+        private readonly IMapper _mapper;
 
-        public IngredientViewModelsController()
+        public IngredientViewModelsController(IMapper mapper)
         {
             _ingridientManager = new EntityManager<Ingredient, IngredientModel>();
-            var mapConfig = new MapperConfiguration(c => c.CreateMap<IngredientModel, IngredientViewModel>().ReverseMap());
-            _mapper = new Mapper(mapConfig);
+            _mapper = mapper;
         }
 
         // GET: IngredientViewModels

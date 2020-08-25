@@ -26,11 +26,9 @@ namespace MenuMaker.Autofac
             // Uncomment in case of IAPIController using.
             //builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<BaseRepository<Ingredient>>().As<IRepository<Ingredient>>();
-            builder.RegisterType<EntityManager<Ingredient, IngredientModel>>().As<IEntityManager<Ingredient, IngredientModel>>();
-            //builder.RegisterType<AnimalManager>().As<IAnimalManager>();
-            //builder.RegisterType<HouseManager>().As<IHouseManager>();
-            //builder.RegisterType<CustomJsonConverter>().As<IJsonConverter>();
+            //builder.RegisterType<BaseRepository<Ingredient>>().As<IRepository<Ingredient>>();
+            //builder.RegisterType<EntityManager<Ingredient, IngredientModel>>().As<IEntityManager<Ingredient, IngredientModel>>();
+
 
             builder.RegisterModule<MapperAutofacModule>();
 
