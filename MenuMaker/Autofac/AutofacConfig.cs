@@ -32,7 +32,7 @@ namespace MenuMaker.Autofac
             //builder.RegisterType<HouseManager>().As<IHouseManager>();
             //builder.RegisterType<CustomJsonConverter>().As<IJsonConverter>();
 
-            //builder.RegisterModule<MapperAutofacModule>();
+            builder.RegisterModule<MapperAutofacModule>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
