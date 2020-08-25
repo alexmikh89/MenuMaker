@@ -12,11 +12,11 @@ namespace MenuMaker.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<RecipeIngridients> RecipeIngridients{ get; set; }
+        public virtual ICollection<RecipeIngredients> RecipeIngridients{ get; set; }
 
         public Ingredient()
         {
-            RecipeIngridients = new List<RecipeIngridients>();
+            RecipeIngridients = new List<RecipeIngredients>();
         }
     }
 }

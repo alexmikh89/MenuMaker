@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Models
 {
-    public class RecipeIngridients
+    public class RecipeIngredients
     {
         [Key, Column(Order = 0)]
         public int RecipeId { get; set; }
