@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MenuMaker.Data.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace MenuMaker.Business.Interfaces
 {
     public interface IEntityManager<DbEntity, EntityModel>
         where EntityModel : class
-        where DbEntity : class
+        where DbEntity : class, IEntity
     {
         void Create(EntityModel entityModel);
         EntityModel FindById(int? id);

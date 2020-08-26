@@ -4,11 +4,12 @@ using MenuMaker.Data.Interfaces;
 using MenuMaker.Data.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MenuMaker.Business.Managers
 {
     public class EntityManager<Entity, EntityModel> : IEntityManager<Entity, EntityModel>
-        where Entity : class
+        where Entity : class, IEntity
         where EntityModel : class
     {
         private readonly IRepository<Entity> _repository;
@@ -32,9 +33,9 @@ namespace MenuMaker.Business.Managers
             return _mapper.Map<EntityModel>(dbEntity);
         }
 
-        public IEnumerable<EntityModel> GetAll()
+        public  IEnumerable<EntityModel> GetAll()
         {
-            var listOfDbEntities = _repository.GetAll();
+             var listOfDbEntities =  _repository.GetAll();
             var listOfEntityModels = _mapper.Map<IEnumerable<EntityModel>>(listOfDbEntities);
             return listOfEntityModels;
         }
