@@ -1,6 +1,8 @@
-﻿namespace MenuMaker.Models
+﻿using MenuMaker.Interfaces;
+
+namespace MenuMaker.Models
 {
-    public class RecipeIngredientsViewModel
+    public class RecipeIngredientsViewModel : IEntityViewModel
     {
         public int RecipeId { get; set; }
         public virtual RecipeViewModel RecipeViewModel { get; set; }
