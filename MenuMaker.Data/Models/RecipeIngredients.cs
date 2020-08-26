@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MenuMaker.Data.Models
 {
-    public class RecipeIngredients : IEntity
+    public class RecipeIngredients
     {
         [Key, Column(Order = 0)]
         public int RecipeId { get; set; }
@@ -12,8 +12,9 @@ namespace MenuMaker.Data.Models
         [Key, Column(Order = 1)]
         public int IngredientId { get; set; }
 
-        public virtual Recipe Recipe { get; set; }
-        public virtual Ingredient Ingridient { get; set; }
+        public  Recipe Recipe { get; set; }
+        public  Ingredient Ingredient { get; set; }
+
         public double Amount { get; set; }
     }
 }

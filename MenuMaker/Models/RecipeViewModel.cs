@@ -8,11 +8,11 @@ namespace MenuMaker.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<RecipeIngredientsViewModel> RecipeIngredientsModels { get; set; }
+        public  ICollection<RecipeIngredientsViewModel> RecipeIngredients { get; set; }
 
         public RecipeViewModel()
         {
-            RecipeIngredientsModels = new List<RecipeIngredientsViewModel>();
+            RecipeIngredients = new List<RecipeIngredientsViewModel>();
         }
     }
 }
