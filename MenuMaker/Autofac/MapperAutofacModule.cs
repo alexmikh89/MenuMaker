@@ -13,7 +13,8 @@ namespace MenuMaker.Autofac
         {
             builder.Register(context => new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Recipe, RecipeModel>().ReverseMap();
+                cfg.CreateMap<Recipe, RecipeModel>()
+                .ForMember(i=>i.RecipeIngredients, j=>j.MapFrom(src=>src.RecipeIngredients)).ReverseMap();
                 cfg.CreateMap<Func<Recipe, bool>, Func<RecipeModel, bool>>().ReverseMap();
                 cfg.CreateMap<RecipeModel, RecipeViewModel>().ReverseMap();
                 cfg.CreateMap<Func<RecipeModel, bool>, Func<RecipeViewModel, bool>>().ReverseMap();
