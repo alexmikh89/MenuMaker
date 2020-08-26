@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MenuMaker.Data.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Models
 {
-    public class RecipeIngredients
+    public class RecipeIngredients : IEntity
     {
         [Key, Column(Order = 0)]
         public int RecipeId { get; set; }

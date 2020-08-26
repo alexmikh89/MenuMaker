@@ -16,7 +16,6 @@ namespace MenuMaker.Data
         {
         }
 
-
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

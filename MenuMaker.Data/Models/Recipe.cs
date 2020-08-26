@@ -1,12 +1,9 @@
-﻿using System;
+﻿using MenuMaker.Data.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Models
 {
-    public class Recipe
+    public class Recipe : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

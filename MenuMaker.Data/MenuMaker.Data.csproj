@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.Designer.cs">
