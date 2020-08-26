@@ -1,12 +1,10 @@
-﻿using System;
+﻿using MenuMaker.Data.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Interfaces
 {
     public interface IEntity
     {
+        ICollection<RecipeIngredients> RecipeIngredients { get; set; }
     }
 }

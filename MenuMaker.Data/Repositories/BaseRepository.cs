@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MenuMaker.Data.Repositories
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         public BaseRepository() { }
 
@@ -34,7 +34,7 @@ namespace MenuMaker.Data.Repositories
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
-                var result = dbSet.AsNoTracking().ToList();
+                var result = dbSet.Include(i => i.RecipeIngredients).ToList();
                 return result;
             }
         }

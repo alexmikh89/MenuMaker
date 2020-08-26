@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MenuMaker.Data.Interfaces
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class, IEntity
     {
         void Create(TEntity entity);
         TEntity FindById(int? id);
