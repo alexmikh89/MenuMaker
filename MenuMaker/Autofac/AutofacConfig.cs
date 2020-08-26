@@ -6,10 +6,6 @@ using MenuMaker.Business.Models;
 using MenuMaker.Data.Interfaces;
 using MenuMaker.Data.Models;
 using MenuMaker.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MenuMaker.Autofac
@@ -26,9 +22,11 @@ namespace MenuMaker.Autofac
             // Uncomment in case of IAPIController using.
             //builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
 
-            //builder.RegisterType<BaseRepository<Ingredient>>().As<IRepository<Ingredient>>();
-            //builder.RegisterType<EntityManager<Ingredient, IngredientModel>>().As<IEntityManager<Ingredient, IngredientModel>>();
+            builder.RegisterType<BaseRepository<Ingredient>>().As<IRepository<Ingredient>>();
+            builder.RegisterType<BaseRepository<Recipe>>().As<IRepository<Recipe>>();
 
+            builder.RegisterType<EntityManager<Ingredient, IngredientModel>>().As<IEntityManager<Ingredient, IngredientModel>>();
+            builder.RegisterType<EntityManager<Recipe, RecipeModel>>().As<IEntityManager<Recipe, RecipeModel>>();
 
             builder.RegisterModule<MapperAutofacModule>();
 
