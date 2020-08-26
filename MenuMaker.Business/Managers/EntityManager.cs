@@ -12,17 +12,12 @@ namespace MenuMaker.Business.Managers
         where EntityModel : class
     {
         private readonly IRepository<Entity> _repository;
-        private readonly Mapper _mapper;
+        private readonly IMapper _mapper;
 
-        public EntityManager()
+        public EntityManager(IMapper mapper, IRepository<Entity> repository)
         {
-            _repository = new BaseRepository<Entity>();
-            var mapConfig = new MapperConfiguration(c =>
-            {
-                c.CreateMap<Entity, EntityModel>().ReverseMap();
-                c.CreateMap<Func<EntityModel, bool>, Func<Entity, bool>>().ReverseMap();
-            });
-            _mapper = new Mapper(mapConfig);
+            _repository = repository;
+            _mapper = mapper;
         }
 
         public void Create(EntityModel entityModel)
