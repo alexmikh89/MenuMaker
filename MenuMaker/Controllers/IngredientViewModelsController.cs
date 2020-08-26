@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
-using MenuMaker.Business.Managers;
 using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
@@ -12,19 +11,19 @@ namespace MenuMaker.Controllers
 {
     public class IngredientViewModelsController : Controller
     {
-        private readonly IEntityManager<Ingredient, IngredientModel> _ingridientManager;
+        private readonly IEntityManager<Ingredient, IngredientModel> _ingredientManager;
         private readonly IMapper _mapper;
 
-        public IngredientViewModelsController(IMapper mapper)
+        public IngredientViewModelsController(IMapper mapper,  IEntityManager<Ingredient, IngredientModel> entityManager)
         {
-            _ingridientManager = new EntityManager<Ingredient, IngredientModel>();
+            _ingredientManager = entityManager;
             _mapper = mapper;
         }
 
         // GET: IngredientViewModels
         public ActionResult Index()
         {
-            var ingredientsList = _ingridientManager.GetAll();
+            var ingredientsList = _ingredientManager.GetAll();
             var listOfIngredientsViewModels = _mapper.Map<IList<IngredientViewModel>>(ingredientsList);
 
             return View(listOfIngredientsViewModels);
@@ -37,7 +36,7 @@ namespace MenuMaker.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var ingredientModel = _ingridientManager.FindById(id);            
+            var ingredientModel = _ingredientManager.FindById(id);            
 
             if (ingredientModel == null)
             {
@@ -64,7 +63,7 @@ namespace MenuMaker.Controllers
             if (ModelState.IsValid)
             {
                 var ingredientModel = _mapper.Map<IngredientModel>(ingredientViewModel);
-                _ingridientManager.Create(ingredientModel);
+                _ingredientManager.Create(ingredientModel);
 
                 return RedirectToAction("Index");
             }
@@ -80,7 +79,7 @@ namespace MenuMaker.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            IngredientModel ingredientModel = _ingridientManager.FindById(id);
+            IngredientModel ingredientModel = _ingredientManager.FindById(id);
             IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
 
             if (ingredientViewModel == null)
@@ -101,7 +100,7 @@ namespace MenuMaker.Controllers
             if (ModelState.IsValid)
             {
                 var ingredientModel = _mapper.Map<IngredientModel>(ingredientViewModel);
-                _ingridientManager.Update(ingredientModel);
+                _ingredientManager.Update(ingredientModel);
 
                 return RedirectToAction("Index");
             }
@@ -116,7 +115,7 @@ namespace MenuMaker.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var ingredientModel = _ingridientManager.FindById(id);
+            var ingredientModel = _ingredientManager.FindById(id);
 
             IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
             if (ingredientViewModel == null)
@@ -131,17 +130,8 @@ namespace MenuMaker.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            _ingridientManager.Remove(id);
+            _ingredientManager.Remove(id);
             return RedirectToAction("Index");
         }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
     }
 }
