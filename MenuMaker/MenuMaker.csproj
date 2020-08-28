@@ -192,6 +192,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientViewModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipeViewModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +269,11 @@
     <Content Include="Views\IngredientViewModels\Details.cshtml" />
     <Content Include="Views\IngredientViewModels\Edit.cshtml" />
     <Content Include="Views\IngredientViewModels\Index.cshtml" />
+    <Content Include="Views\RecipeViewModels\Create.cshtml" />
+    <Content Include="Views\RecipeViewModels\Delete.cshtml" />
+    <Content Include="Views\RecipeViewModels\Details.cshtml" />
+    <Content Include="Views\RecipeViewModels\Edit.cshtml" />
+    <Content Include="Views\RecipeViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

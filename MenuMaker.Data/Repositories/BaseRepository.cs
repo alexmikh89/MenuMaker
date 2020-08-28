@@ -34,8 +34,17 @@ namespace MenuMaker.Data.Repositories
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
+
+                var e = ctx.RecipeIngridients.FirstOrDefault();
+                ctx.Entry(e).Reference("Ingredient").Load();
+                ctx.Entry(e).Reference("Recipe").Load();
+
                 var result = dbSet.Include(i => i.RecipeIngredients).ToList();
                 return result;
+
+                //var dbSet = ctx.Set<TEntity>();
+                //var result = dbSet.Include(i => i.RecipeIngredients).ToList();
+                //return result;
             }
         }
 
