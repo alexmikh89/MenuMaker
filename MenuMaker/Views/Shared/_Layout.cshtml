@@ -51,10 +51,10 @@
                                 Recepies
                             </button>
                             <div class="my-dropdown-content">
-                                <a href="#">View all</a>
-                                <a href="#">Favorite</a>
-                                <a href="#">Add new</a>
+                                @Html.ActionLink("View all", "Index", "RecipeViewModels")
                                 <a href="#">My recepies</a>
+                                <a href="#">Favorite</a>
+                                @Html.ActionLink("Add new", "Create", "RecipeViewModels")
                             </div>
                         </div>
                     </li>
