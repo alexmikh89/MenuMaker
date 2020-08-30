@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace MenuMaker.Business.Managers
 {
     public class EntityManager<Entity, EntityModel> : IEntityManager<Entity, EntityModel>
-        where Entity : class, IEntity
+        where Entity : class
         where EntityModel : class
     {
         private readonly IRepository<Entity> _repository;

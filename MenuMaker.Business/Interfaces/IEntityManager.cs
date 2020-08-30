@@ -6,7 +6,7 @@ namespace MenuMaker.Business.Interfaces
 {
     public interface IEntityManager<DbEntity, EntityModel>
         where EntityModel : class
-        where DbEntity : class, IEntity
+        where DbEntity : class
     {
         void Create(EntityModel entityModel);
         EntityModel FindById(int? id);

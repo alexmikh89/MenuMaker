@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Repositories
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+   public class RecipeIngredientRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        public BaseRepository() { }
+        public RecipeIngredientRepository() { }
 
         public void Create(TEntity entity)
         {
@@ -39,7 +41,7 @@ namespace MenuMaker.Data.Repositories
                 ctx.Entry(e).Reference("Ingredient").Load();
                 ctx.Entry(e).Reference("Recipe").Load();
 
-                var result = dbSet.Include(i => i.RecipeIngredients).ToList();
+                var result = dbSet.ToList();
                 return result;
             }
         }

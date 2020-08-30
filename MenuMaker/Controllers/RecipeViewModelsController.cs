@@ -1,29 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Models;
-using MenuMaker.Data;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
     public class RecipeViewModelsController : Controller
     {
-        private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
         private readonly IMapper _mapper;
+        private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
+        private readonly IEntityManager<Ingredient, IngredientModel> _ingredientManager;
+        private readonly IEntityManager<RecipeIngredients, RecipeIngredientsModel> _recipeIngredientManager;
 
-        public RecipeViewModelsController(IMapper mapper, IEntityManager<Recipe, RecipeModel> entityManager)
+
+        public RecipeViewModelsController(IMapper mapper,
+            IEntityManager<Recipe, RecipeModel> recipeManager,
+            IEntityManager<Ingredient, IngredientModel> ingredientManager,
+            IEntityManager<RecipeIngredients, RecipeIngredientsModel> recipeIngredientManager)
         {
-            _recipeManager = entityManager;
             _mapper = mapper;
+            _recipeManager = recipeManager;
+            _ingredientManager = ingredientManager;
+            _recipeIngredientManager = recipeIngredientManager;
         }
 
         // GET: RecipeViewModels
@@ -56,25 +58,26 @@ namespace MenuMaker.Controllers
         // GET: RecipeViewModels/Create
         public ActionResult Create()
         {
-            return View();
+            var newRecipe = new RecipeIngredientsViewModel();
+            var dropDownListOfIngredientModels = _ingredientManager.GetAll();
+            var dropDownListOfIngrediens = _mapper.Map<List<IngredientViewModel>>(dropDownListOfIngredientModels);
+            newRecipe.IngredientsDropDownList = dropDownListOfIngrediens;
+            return View(newRecipe);
         }
 
         // POST: RecipeViewModels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(RecipeViewModel recipeViewModel)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(RecipeIngredientsViewModel recipeIngredientsViewModel)
         {
             if (ModelState.IsValid)
             {
-                var recipeModel = _mapper.Map<RecipeModel>(recipeViewModel);
-                _recipeManager.Create(recipeModel);
-
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
 
-            return View(recipeViewModel);
+            return View(/*recipeViewModel*/);
         }
 
         // GET: RecipeViewModels/Edit/5
