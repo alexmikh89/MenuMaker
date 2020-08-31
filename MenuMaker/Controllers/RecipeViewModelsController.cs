@@ -70,11 +70,11 @@ namespace MenuMaker.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public ActionResult Create(RecipeIngredientsViewModel recipeIngredientsViewModel)
+        public ActionResult Create(RecipeIngredientPostVM recipeIngredientPostVM)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Index"); 
+                return RedirectToAction("Index");
             }
 
             return View(/*recipeViewModel*/);
