@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Data.Interfaces;
-using MenuMaker.Data.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Business.Managers
 {

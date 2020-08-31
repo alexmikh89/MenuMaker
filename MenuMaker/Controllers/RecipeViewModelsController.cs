@@ -4,6 +4,7 @@ using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -74,6 +75,9 @@ namespace MenuMaker.Controllers
         {
             if (ModelState.IsValid)
             {
+                var newRecipeViewModel = new RecipeViewModel();
+                //
+                // Invoke a recipe manager and pass a mappped map<recipe>(recipeingredientVM)
                 return RedirectToAction("Index");
             }
 

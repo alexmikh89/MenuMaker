@@ -7,6 +7,7 @@ namespace MenuMaker.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
         
         public  ICollection<RecipeIngredientsViewModel> RecipeIngredients { get; set; }
         
