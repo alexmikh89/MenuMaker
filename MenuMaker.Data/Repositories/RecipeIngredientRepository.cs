@@ -3,22 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Repositories
 {
-   public class RecipeIngredientRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class RecipeIngredientRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         public RecipeIngredientRepository() { }
 
-        public void Create(TEntity entity)
+        public int Create(TEntity entity)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
                 dbSet.Add(entity);
-                ctx.SaveChanges();
+                return ctx.SaveChanges();
             }
         }
 

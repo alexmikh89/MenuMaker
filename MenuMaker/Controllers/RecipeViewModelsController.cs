@@ -75,7 +75,20 @@ namespace MenuMaker.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newRecipeViewModel = new RecipeViewModel();
+                //add new recipe with manager which will return ID for new recipe
+                var newRecipePLModel = new RecipeViewModel() { Name = recipeIngredientPostVM.RecipeName };
+                var newRecipeBLModel = _mapper.Map<RecipeModel>(newRecipePLModel);
+                var recipeId = _recipeManager.Create(newRecipeBLModel);
+
+
+
+
+                // in loop add new rcioeIngredient entities in DB for each new ingredient:
+                //creating with recipe id + ingredient id
+                _recipeIngredientManager.Create(new RecipeIngredientsModel());
+
+
+                //var newRecipeViewModel = new RecipeViewModel();
                 //
                 // Invoke a recipe manager and pass a mappped map<recipe>(recipeingredientVM)
                 return RedirectToAction("Index");

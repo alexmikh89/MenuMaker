@@ -8,7 +8,7 @@ namespace MenuMaker.Business.Interfaces
         where EntityModel : class
         where DbEntity : class
     {
-        void Create(EntityModel entityModel);
+        int Create(EntityModel entityModel);
         EntityModel FindById(int? id);
         IEnumerable<EntityModel> GetAll();
         IEnumerable<EntityModel> GetAll(Func<EntityModel, bool> func);

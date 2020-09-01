@@ -10,13 +10,13 @@ namespace MenuMaker.Data.Repositories
     {
         public BaseRepository() { }
 
-        public void Create(TEntity entity)
+        public int Create(TEntity entity)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
                 dbSet.Add(entity);
-                ctx.SaveChanges();
+                return ctx.SaveChanges();
             }
         }
 
@@ -34,6 +34,7 @@ namespace MenuMaker.Data.Repositories
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
+
 
                 var e = ctx.RecipeIngridients.FirstOrDefault();
                 if (e != null)

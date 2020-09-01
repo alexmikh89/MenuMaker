@@ -26,6 +26,7 @@ namespace MenuMaker.Autofac
             builder.RegisterType<BaseRepository<Recipe>>().As<IRepository<Recipe>>();
             builder.RegisterType<RecipeIngredientRepository<RecipeIngredients>>().As<IRepository<RecipeIngredients>>();
 
+
             builder.RegisterType<EntityManager<Ingredient, IngredientModel>>()
                 .As<IEntityManager<Ingredient, IngredientModel>>();
             builder.RegisterType<EntityManager<Recipe, RecipeModel>>()

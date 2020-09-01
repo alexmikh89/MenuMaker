@@ -19,10 +19,10 @@ namespace MenuMaker.Business.Managers
             _mapper = mapper;
         }
 
-        public virtual void Create(EntityModel entityModel)
+        public virtual int Create(EntityModel entityModel)
         {
             var dbEntity = _mapper.Map<Entity>(entityModel);
-            _repository.Create(dbEntity);
+            return _repository.Create(dbEntity);
         }
 
         public virtual EntityModel FindById(int? id)
