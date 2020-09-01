@@ -12,6 +12,7 @@ namespace MenuMaker.Data.Repositories
 
         public int Create(TEntity entity)
         {
+
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();

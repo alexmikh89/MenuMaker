@@ -1,6 +1,6 @@
-﻿namespace MenuMaker.Models
+﻿namespace MenuMaker.Business.Models
 {
-    public class CreatedRecipePostVM
+    public class CreatedRecipeModel
     {
         public string RecipeName { get; set; }
         public int[] IngredientId { get; set; }
