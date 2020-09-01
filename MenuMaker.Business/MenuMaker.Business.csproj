@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IEntityManager.cs" />
     <Compile Include="Interfaces\IEntityModel.cs" />
+    <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\RecipeIngredientsModel.cs" />
