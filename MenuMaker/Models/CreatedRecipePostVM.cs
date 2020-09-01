@@ -2,7 +2,7 @@
 
 namespace MenuMaker.Models
 {
-    public class RecipeIngredientPostVM
+    public class CreatedRecipePostVM
     {
         public string RecipeName { get; set; }
         public IEnumerable<IngredientPostViewModel> IngredientPostViewModels { get; set; }

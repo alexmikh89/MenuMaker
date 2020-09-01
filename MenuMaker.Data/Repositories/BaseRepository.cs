@@ -35,7 +35,6 @@ namespace MenuMaker.Data.Repositories
             {
                 var dbSet = ctx.Set<TEntity>();
 
-
                 var e = ctx.RecipeIngridients.FirstOrDefault();
                 if (e != null)
                 {

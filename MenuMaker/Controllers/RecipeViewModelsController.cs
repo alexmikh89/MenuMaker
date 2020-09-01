@@ -71,7 +71,7 @@ namespace MenuMaker.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(RecipeIngredientPostVM recipeIngredientPostVM)
+        public ActionResult Create(CreatedRecipePostVM recipeIngredientPostVM)
         {
             if (ModelState.IsValid)
             {
