@@ -131,7 +131,7 @@ namespace MenuMaker.Controllers
 
             var recipeModel = _recipeManager.FindById(id);
 
-            var recipeViewModel = _mapper.Map<IngredientViewModel>(recipeModel);
+            var recipeViewModel = _mapper.Map<RecipeViewModel>(recipeModel);
             if (recipeViewModel == null)
             {
                 return HttpNotFound();
