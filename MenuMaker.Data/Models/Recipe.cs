@@ -10,6 +10,8 @@ namespace MenuMaker.Data.Models
 
         public  ICollection<RecipeIngredients> RecipeIngredients { get; set; }
 
+        public byte[] RecipeImage { get; set; }
+
         public Recipe()
         {
             RecipeIngredients = new List<RecipeIngredients>();
