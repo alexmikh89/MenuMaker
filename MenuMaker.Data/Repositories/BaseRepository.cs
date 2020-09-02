@@ -1,4 +1,5 @@
 ﻿using MenuMaker.Data.Interfaces;
+using MenuMaker.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -27,7 +28,20 @@ namespace MenuMaker.Data.Repositories
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
-                return dbSet.Find(id);
+
+                dbSet.Include(i => i.RecipeIngredients).ToList();
+
+                List<RecipeIngredients> listOfRecipeIngredientsRelations = ctx.RecipeIngridients.Where(i => i.RecipeId == id).ToList();
+
+                foreach (var recipeIngredient in listOfRecipeIngredientsRelations)
+                {
+                    ctx.Entry(recipeIngredient).Reference("Ingredient").Load();
+                    ctx.Entry(recipeIngredient).Reference("Recipe").Load();
+                }
+
+                var result = dbSet.Find(id);
+
+                return result ;
             }
         }
 

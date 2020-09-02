@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
-using MenuMaker.Business.Managers;
 using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
