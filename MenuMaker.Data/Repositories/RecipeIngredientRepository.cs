@@ -1,4 +1,5 @@
 ﻿using MenuMaker.Data.Interfaces;
+using MenuMaker.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,18 +7,18 @@ using System.Linq;
 
 namespace MenuMaker.Data.Repositories
 {
-    public class RecipeIngredientRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class RecipeIngredientRepository<TEntity> : IRepository<TEntity> where TEntity : RecipeIngredients
     {
         public RecipeIngredientRepository() { }
 
         public int Create(TEntity entity)
         {
-
             using (var ctx = new ApplicationDbContext())
             {
                 var dbSet = ctx.Set<TEntity>();
                 dbSet.Add(entity);
-                return ctx.SaveChanges();
+                var result = ctx.SaveChanges();
+                return result;
             }
         }
 

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
+using MenuMaker.Business.Managers;
 using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -15,13 +15,12 @@ namespace MenuMaker.Controllers
         private readonly IMapper _mapper;
         private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
         private readonly IEntityManager<Ingredient, IngredientModel> _ingredientManager;
-        private readonly IEntityManager<RecipeIngredients, RecipeIngredientsModel> _recipeIngredientManager;
-
+        private readonly IRecipeIngredientsManager _recipeIngredientManager;
 
         public RecipeViewModelsController(IMapper mapper,
             IEntityManager<Recipe, RecipeModel> recipeManager,
             IEntityManager<Ingredient, IngredientModel> ingredientManager,
-            IEntityManager<RecipeIngredients, RecipeIngredientsModel> recipeIngredientManager)
+            IRecipeIngredientsManager recipeIngredientManager)
         {
             _mapper = mapper;
             _recipeManager = recipeManager;
@@ -76,25 +75,14 @@ namespace MenuMaker.Controllers
             if (ModelState.IsValid)
             {
                 //add new recipe with manager which will return ID for new recipe
-                var newRecipePLModel = new RecipeViewModel() { Name = recipeIngredientPostVM.RecipeName };
-                var newRecipeBLModel = _mapper.Map<RecipeModel>(newRecipePLModel);
-                var recipeId = _recipeManager.Create(newRecipeBLModel);
 
+                var newRecipeBLModel = _mapper.Map<CreatedRecipeModel>(recipeIngredientPostVM);
+                _recipeIngredientManager.Create(newRecipeBLModel);
 
-
-
-                // in loop add new rcioeIngredient entities in DB for each new ingredient:
-                //creating with recipe id + ingredient id
-                _recipeIngredientManager.Create(new RecipeIngredientsModel());
-
-
-                //var newRecipeViewModel = new RecipeViewModel();
-                //
-                // Invoke a recipe manager and pass a mappped map<recipe>(recipeingredientVM)
                 return RedirectToAction("Index");
             }
 
-            return View(/*recipeViewModel*/);
+            return View(recipeIngredientPostVM);
         }
 
         // GET: RecipeViewModels/Edit/5

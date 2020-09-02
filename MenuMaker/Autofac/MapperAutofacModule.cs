@@ -21,6 +21,9 @@ namespace MenuMaker.Autofac
 
                 cfg.CreateMap<CreatedRecipePostVM, CreatedRecipeModel>().ReverseMap();
                 cfg.CreateMap<CreatedRecipe, CreatedRecipeModel>().ReverseMap();
+                cfg.CreateMap<CreatedRecipePostVM, RecipeModel>().ReverseMap();
+                cfg.CreateMap<CreatedRecipeModel, RecipeModel>()
+                .ForMember(i=>i.Name, j=>j.MapFrom(src=>src.RecipeName)).ReverseMap();                
 
                 cfg.CreateMap<Ingredient, IngredientModel>().ReverseMap();
                 cfg.CreateMap<Func<Ingredient, bool>, Func<IngredientModel, bool>>().ReverseMap();

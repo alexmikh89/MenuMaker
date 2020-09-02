@@ -16,7 +16,9 @@ namespace MenuMaker.Data.Repositories
             {
                 var dbSet = ctx.Set<TEntity>();
                 dbSet.Add(entity);
-                return ctx.SaveChanges();
+                ctx.SaveChanges();
+                var addedEntityId = entity.Id;
+                return addedEntityId;
             }
         }
 

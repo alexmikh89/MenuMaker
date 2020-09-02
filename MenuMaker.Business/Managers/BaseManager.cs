@@ -10,8 +10,8 @@ namespace MenuMaker.Business.Managers
         where Entity : class
         where EntityModel : class
     {
-        private readonly IRepository<Entity> _repository;
-        private readonly IMapper _mapper;
+        protected readonly IRepository<Entity> _repository;
+        protected readonly IMapper _mapper;
 
         public BaseManager(IMapper mapper, IRepository<Entity> repository)
         {
@@ -22,7 +22,8 @@ namespace MenuMaker.Business.Managers
         public virtual int Create(EntityModel entityModel)
         {
             var dbEntity = _mapper.Map<Entity>(entityModel);
-            return _repository.Create(dbEntity);
+            var result = _repository.Create(dbEntity);
+            return result;
         }
 
         public virtual EntityModel FindById(int? id)
