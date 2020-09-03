@@ -1,7 +1,7 @@
 ﻿@model MenuMaker.Models.RecipeIngredientsViewModel
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "RecipeViewModels", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -12,8 +12,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RecipeName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RecipeName, new { htmlAttributes = new { @class = "form-control", name="RecipeName" } })
+                @Html.EditorFor(model => model.RecipeName, new { htmlAttributes = new { @class = "form-control", name = "RecipeName" } })
                 @Html.ValidationMessageFor(model => model.RecipeName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                @Html.Label("Choose a picture")
+            </div>
+            <div class="col-md-10">
+                <label for="choose-a-file-btn" class="btn btn-default">Browse..</label>
+                <input type="file" name="ImageFile" required id="choose-a-file-btn" style="visibility:hidden; height:0;">
             </div>
         </div>
         <div class="ingredients-in-recipe">
@@ -28,7 +37,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", type="number", min=0 } })
+                        @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", type = "number", min = 0 } })
                         @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -38,7 +47,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create recipe" class="btn btn-default" style='width:120px' />
-                <input  type="button"  value="Add new" class="btn btn-default" style='width:120px' onclick="GetDynamicInfredientInputFields()" />
+                <input type="button" value="Add new" class="btn btn-default" style='width:120px' onclick="GetDynamicInfredientInputFields()" />
             </div>
         </div>
     </div>

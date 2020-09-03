@@ -3,7 +3,9 @@ using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Web.Mvc;
 
@@ -58,9 +60,11 @@ namespace MenuMaker.Controllers
         public ActionResult Create()
         {
             var newRecipe = new RecipeIngredientsViewModel();
+
             var dropDownListOfIngredientModels = _ingredientManager.GetAll();
             var dropDownListOfIngrediens = _mapper.Map<List<IngredientViewModel>>(dropDownListOfIngredientModels);
             newRecipe.IngredientsDropDownList = dropDownListOfIngrediens;
+
             return View(newRecipe);
         }
 
@@ -69,19 +73,25 @@ namespace MenuMaker.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreatedRecipePostVM recipeIngredientPostVM)
+        public ActionResult Create(CreatedRecipePostVM  createdRecipePostVM)
         {
             if (ModelState.IsValid)
             {
-                //add new recipe with manager which will return ID for new recipe
+                string fileName = Path.GetFileNameWithoutExtension(createdRecipePostVM.ImageFile.FileName);
+                string extension = Path.GetExtension(createdRecipePostVM.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                createdRecipePostVM.ImagePath = "~/Images/" + fileName;
 
-                var newRecipeBLModel = _mapper.Map<CreatedRecipeModel>(recipeIngredientPostVM);
-                _recipeIngredientManager.Create(newRecipeBLModel);
+                fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                createdRecipePostVM.ImageFile.SaveAs(fileName);
+
+                var createdRecipeModel = _mapper.Map<CreatedRecipeModel>(createdRecipePostVM);
+                _recipeIngredientManager.Create(createdRecipeModel);
 
                 return RedirectToAction("Index");
             }
 
-            return View(recipeIngredientPostVM);
+            return View(createdRecipePostVM);
         }
 
         // GET: RecipeViewModels/Edit/5
