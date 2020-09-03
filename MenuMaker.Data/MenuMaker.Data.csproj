@@ -94,6 +94,10 @@
     <Compile Include="Migrations\202009021854176_image_column_in_recipeTable_renamed_to_RecipeImage.Designer.cs">
       <DependentUpon>202009021854176_image_column_in_recipeTable_renamed_to_RecipeImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.cs" />
+    <Compile Include="Migrations\202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.Designer.cs">
+      <DependentUpon>202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\CreatedRecipe.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009021854176_image_column_in_recipeTable_renamed_to_RecipeImage.resx">
       <DependentUpon>202009021854176_image_column_in_recipeTable_renamed_to_RecipeImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.resx">
+      <DependentUpon>202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
