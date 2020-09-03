@@ -11,5 +11,6 @@ namespace MenuMaker.Data.Models
         public string RecipeName { get; set; }
         public int[] IngredientId { get; set; }
         public double[] Amount { get; set; }
+        public string ImagePath { get; set; }
     }
 }

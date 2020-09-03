@@ -1,11 +1,19 @@
-﻿namespace MenuMaker.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
+
+
+namespace MenuMaker.Models
 {
     public class CreatedRecipePostVM
     {
+        public int Id { get; set; }
         public string RecipeName { get; set; }
         public int[] IngredientId { get; set; }
         public double[] Amount { get; set; }
-        public byte[] RecipeImage { get; set; }
 
+        public string ImagePath { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

@@ -7,10 +7,8 @@ namespace MenuMaker.Data.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
         public  ICollection<RecipeIngredients> RecipeIngredients { get; set; }
-
-        public byte[] RecipeImage { get; set; }
+        public string ImagePath { get; set; }
 
         public Recipe()
         {
