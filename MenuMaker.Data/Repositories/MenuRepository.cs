@@ -2,9 +2,6 @@
 using MenuMaker.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Repositories
 {
@@ -22,8 +19,8 @@ namespace MenuMaker.Data.Repositories
                 {
                     dbMenuRecipeSet.Add(menuRecipe);
                 }
-                
-                var result = ctx.SaveChanges(); 
+
+                var result = ctx.SaveChanges();
                 return result;
             }
         }

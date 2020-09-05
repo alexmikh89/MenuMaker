@@ -14,7 +14,7 @@ namespace MenuMaker.Autofac
             builder.Register(context => new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Recipe, RecipeModel>()
-                .ForMember(i=>i.RecipeIngredients, j=>j.MapFrom(src=>src.RecipeIngredients)).ReverseMap();
+                .ForMember(i => i.RecipeIngredients, j => j.MapFrom(src => src.RecipeIngredients)).ReverseMap();
                 cfg.CreateMap<Func<Recipe, bool>, Func<RecipeModel, bool>>().ReverseMap();
                 cfg.CreateMap<RecipeModel, RecipeViewModel>().ReverseMap();
                 cfg.CreateMap<Func<RecipeModel, bool>, Func<RecipeViewModel, bool>>().ReverseMap();
@@ -23,7 +23,7 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<CreatedRecipe, CreatedRecipeModel>().ReverseMap();
                 cfg.CreateMap<CreatedRecipePostVM, RecipeModel>().ReverseMap();
                 cfg.CreateMap<CreatedRecipeModel, RecipeModel>()
-                .ForMember(i=>i.Name, j=>j.MapFrom(src=>src.RecipeName)).ReverseMap();                
+                .ForMember(i => i.Name, j => j.MapFrom(src => src.RecipeName)).ReverseMap();
 
                 cfg.CreateMap<Ingredient, IngredientModel>().ReverseMap();
                 cfg.CreateMap<Func<Ingredient, bool>, Func<IngredientModel, bool>>().ReverseMap();
@@ -34,6 +34,16 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<Func<RecipeIngredients, bool>, Func<RecipeIngredientsModel, bool>>().ReverseMap();
                 cfg.CreateMap<RecipeIngredientsModel, RecipeIngredientsViewModel>().ReverseMap();
                 cfg.CreateMap<Func<RecipeIngredientsModel, bool>, Func<RecipeIngredientsViewModel, bool>>().ReverseMap();
+
+                cfg.CreateMap<Menu, MenuCreateModel>().ReverseMap();
+                cfg.CreateMap<Func<Menu, bool>, Func<MenuCreateModel, bool>>().ReverseMap();
+                cfg.CreateMap<Menu, MenuModel>().ReverseMap();
+                cfg.CreateMap<Func<Menu, bool>, Func<MenuModel, bool>>().ReverseMap();
+
+                cfg.CreateMap<MenuRecipe, MenuRecipeModel>().ReverseMap();
+                cfg.CreateMap<Func<MenuRecipe, bool>, Func<MenuRecipeModel, bool>>().ReverseMap();
+                cfg.CreateMap<MenuRecipe, MenuRecipeCreateModel>().ReverseMap();
+                cfg.CreateMap<Func<MenuRecipe, bool>, Func<MenuRecipeCreateModel, bool>>().ReverseMap();
             }))
                 .AsSelf()
                 .SingleInstance();
