@@ -103,7 +103,12 @@
     <Compile Include="Migrations\202009051256477_Add_Menu_and_MenuRecipes_tables.Designer.cs">
       <DependentUpon>202009051256477_Add_Menu_and_MenuRecipes_tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009051620154_Add_Days_Table.cs" />
+    <Compile Include="Migrations\202009051620154_Add_Days_Table.Designer.cs">
+      <DependentUpon>202009051620154_Add_Days_Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\CreatedRecipe.cs" />
     <Compile Include="Models\MenuRecipe.cs" />
@@ -153,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009051256477_Add_Menu_and_MenuRecipes_tables.resx">
       <DependentUpon>202009051256477_Add_Menu_and_MenuRecipes_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051620154_Add_Days_Table.resx">
+      <DependentUpon>202009051620154_Add_Days_Table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
