@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Interfaces
 {
-    interface IMenuRepository
+    public interface IMenuRepository
     {
-        int Create(Menu  menu);
+        int Create(Menu menu);
         Menu FindById(int? id);
         IEnumerable<Menu> GetAll();
         IEnumerable<Menu> GetAll(Func<Menu, bool> func);
