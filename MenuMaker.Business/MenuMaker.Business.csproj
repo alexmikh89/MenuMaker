@@ -46,12 +46,18 @@
   <ItemGroup>
     <Compile Include="Interfaces\IEntityManager.cs" />
     <Compile Include="Interfaces\IEntityModel.cs" />
+    <Compile Include="Interfaces\IMenuManager.cs" />
     <Compile Include="Interfaces\IRecipeIngredientsManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Managers\MenuManager.cs" />
     <Compile Include="Managers\RecipeIngredientManager.cs" />
     <Compile Include="Models\CreatedRecipeModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />
+    <Compile Include="Models\MenuCreateModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\MenuRecipeCreateModel.cs" />
+    <Compile Include="Models\MenuRecipeModel.cs" />
     <Compile Include="Models\RecipeIngredientsModel.cs" />
     <Compile Include="Models\RecipeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
