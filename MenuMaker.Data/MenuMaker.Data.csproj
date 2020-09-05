@@ -57,6 +57,7 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.Designer.cs">
@@ -98,14 +99,21 @@
     <Compile Include="Migrations\202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.Designer.cs">
       <DependentUpon>202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009051256477_Add_Menu_and_MenuRecipes_tables.cs" />
+    <Compile Include="Migrations\202009051256477_Add_Menu_and_MenuRecipes_tables.Designer.cs">
+      <DependentUpon>202009051256477_Add_Menu_and_MenuRecipes_tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\CreatedRecipe.cs" />
+    <Compile Include="Models\MenuRecipe.cs" />
     <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeIngredients.cs" />
     <Compile Include="Models\RolesInitializer.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\RecipeIngredientRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.resx">
       <DependentUpon>202009032001531_add_imagePath_to_Recipe_remove_ImageByteArray.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009051256477_Add_Menu_and_MenuRecipes_tables.resx">
+      <DependentUpon>202009051256477_Add_Menu_and_MenuRecipes_tables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
