@@ -18,7 +18,7 @@ namespace MenuMaker.Data.Repositories
                 var dbMenuRecipeSet = ctx.Set<MenuRecipe>();
                 dbMenuSet.Add(menu);
 
-                foreach (var menuRecipe in menu.MenuRecipe)
+                foreach (var menuRecipe in menu.MenuRecipes)
                 {
                     dbMenuRecipeSet.Add(menuRecipe);
                 }
