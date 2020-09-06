@@ -33,9 +33,7 @@ namespace MenuMaker.Controllers
         // GET: Menu/Create
         public ActionResult Create()
         {
-            var newMenu = new MenuViewModel();
-
-
+            var newMenu = new MenuCreateViewModel();
             var RecipeModelsDropdownList = _recipeManager.GetAll();
             var RecipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(RecipeModelsDropdownList);
             newMenu.RecipeViewModelsDropdownList = RecipeViewModelsDropdownList;
@@ -49,18 +47,6 @@ namespace MenuMaker.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                //string fileName = Path.GetFileNameWithoutExtension(createdRecipePostVM.ImageFile.FileName);
-                //string extension = Path.GetExtension(createdRecipePostVM.ImageFile.FileName);
-                //fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                //createdRecipePostVM.ImagePath = "~/Images/" + fileName;
-
-                //fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                //createdRecipePostVM.ImageFile.SaveAs(fileName);
-
-                //var createdRecipeModel = _mapper.Map<CreatedRecipeModel>(createdRecipePostVM);
-                //_recipeIngredientManager.Create(createdRecipeModel);
-
                 return RedirectToAction("Index");
             }
 

@@ -203,6 +203,7 @@
     <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreatedRecipePostVM.cs" />
+    <Compile Include="Models\MenuCreateViewModel.cs" />
     <Compile Include="Models\MenuPostViewModel.cs" />
     <Compile Include="Models\MenuRecipeViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
