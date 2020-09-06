@@ -30,6 +30,7 @@ namespace MenuMaker.Controllers
             return View();
         }
 
+        // GET: Menu/Create
         public ActionResult Create()
         {
             var newMenu = new MenuViewModel();
@@ -44,8 +45,7 @@ namespace MenuMaker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Create(MenuPostViewModel menuPostViewModel)
+        public ActionResult Create(MenuPostViewModel menuPostViewModel, MenuRecipePostViewModel menuRecipeViewModel)
         {
             if (ModelState.IsValid)
             {
