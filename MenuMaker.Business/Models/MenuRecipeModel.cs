@@ -7,5 +7,7 @@
 
         public int RecipeId { get; set; }
         public RecipeModel Recipe { get; set; }
+
+
     }
 }

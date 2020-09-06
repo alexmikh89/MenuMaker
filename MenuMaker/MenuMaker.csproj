@@ -192,16 +192,20 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IngredientViewModelsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\RecipeViewModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IEntityViewModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DayViewModel.cs" />
     <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreatedRecipePostVM.cs" />
     <Compile Include="Models\MenuPostViewModel.cs" />
+    <Compile Include="Models\MenuRecipeViewModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\RecipeIngredientsViewModel.cs" />
     <Compile Include="Models\RecipeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -212,6 +216,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Controllers\MenuController\Create.js" />
     <Content Include="Content\Controllers\RecipeViewModelsController\Create.js" />
     <Content Include="Content\my-navbar.css" />
     <Content Include="favicon.ico" />
@@ -277,6 +282,7 @@
     <Content Include="Views\RecipeViewModels\Details.cshtml" />
     <Content Include="Views\RecipeViewModels\Edit.cshtml" />
     <Content Include="Views\RecipeViewModels\Index.cshtml" />
+    <Content Include="Views\Menu\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

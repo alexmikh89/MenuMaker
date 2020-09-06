@@ -11,6 +11,7 @@ namespace MenuMaker.Models
         public string Name { get; set; }
 
         public ICollection<RecipeIngredientsViewModel> RecipeIngredients { get; set; }
+
         public string ImagePath { get; set; }
 
         [NotMapped]
