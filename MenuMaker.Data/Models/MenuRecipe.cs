@@ -17,5 +17,8 @@ namespace MenuMaker.Data.Models
         [Key, Column(Order = 1)]
         public int RecipeId { get; set; }
         public Recipe Recipe { get; set; }
+
+        public int DayId { get; set; }
+        public Day Day { get; set; }
     }
 }
