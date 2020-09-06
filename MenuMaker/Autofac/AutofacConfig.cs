@@ -22,8 +22,8 @@ namespace MenuMaker.Autofac
             // Uncomment in case of IAPIController using.
             //builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<BaseRepository<Ingredient>>().As<IRepository<Ingredient>>();
-            builder.RegisterType<BaseRepository<Recipe>>().As<IRepository<Recipe>>();
+            builder.RegisterType<EntityRepository<Ingredient>>().As<IRepository<Ingredient>>();
+            builder.RegisterType<EntityRepository<Recipe>>().As<IRepository<Recipe>>();
             builder.RegisterType<RecipeIngredientRepository<RecipeIngredients>>().As<IRepository<RecipeIngredients>>();
             builder.RegisterType<MenuRepository>().As<IMenuRepository>();
 

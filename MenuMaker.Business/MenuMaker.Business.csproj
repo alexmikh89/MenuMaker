@@ -51,6 +51,7 @@
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Managers\MenuManager.cs" />
+    <Compile Include="Managers\MenuRecipeManager.cs" />
     <Compile Include="Managers\RecipeIngredientManager.cs" />
     <Compile Include="Models\CreatedRecipeModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />

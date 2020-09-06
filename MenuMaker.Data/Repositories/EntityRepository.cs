@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace MenuMaker.Data.Repositories
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
+    public class EntityRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
-        public BaseRepository() { }
+        public EntityRepository() { }
 
         public int Create(TEntity entity)
         {
