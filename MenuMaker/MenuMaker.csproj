@@ -201,6 +201,7 @@
     <Compile Include="Models\IngredientViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreatedRecipePostVM.cs" />
+    <Compile Include="Models\MenuPostViewModel.cs" />
     <Compile Include="Models\RecipeIngredientsViewModel.cs" />
     <Compile Include="Models\RecipeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
