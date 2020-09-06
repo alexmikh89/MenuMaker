@@ -58,6 +58,8 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IMenuRepository.cs" />
+    <Compile Include="Interfaces\INextEntity.cs" />
+    <Compile Include="Interfaces\INextRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.Designer.cs">
@@ -121,6 +123,7 @@
     <Compile Include="Models\RolesInitializer.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\RecipeIngredientRepository.cs" />
