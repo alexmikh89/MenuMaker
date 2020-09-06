@@ -208,6 +208,7 @@
     <Compile Include="Models\MenuViewModel.cs" />
     <Compile Include="Models\RecipeIngredientsViewModel.cs" />
     <Compile Include="Models\RecipeViewModel.cs" />
+    <Compile Include="Models\MenuRecipePostViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
