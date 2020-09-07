@@ -32,8 +32,8 @@ namespace MenuMaker.Business.Managers
 
         public int Create(CreatedRecipeModel createdRecipeModel)
         {
-            var ingredientIdCollection = createdRecipeModel.IngredientId.ToArray();
-            var ingredientAmountCollection = createdRecipeModel.Amount.ToArray();
+            var ingredientIdCollection = createdRecipeModel.IngredientId/*.ToArray()*/;
+            var ingredientAmountCollection = createdRecipeModel.Amount/*.ToArray()*/;
 
             var recipeModel = CreateNewRecipe(createdRecipeModel);
 

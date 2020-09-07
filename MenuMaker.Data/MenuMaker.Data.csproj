@@ -113,6 +113,14 @@
     <Compile Include="Migrations\202009060925354_Add_Day_FK_to_MenuRecipes_table.Designer.cs">
       <DependentUpon>202009060925354_Add_Day_FK_to_MenuRecipes_table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009071515284_Update_DayId_as_Key.cs" />
+    <Compile Include="Migrations\202009071515284_Update_DayId_as_Key.Designer.cs">
+      <DependentUpon>202009071515284_Update_DayId_as_Key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009072030590_Update_MenuRecipe_Added_Primary_key.cs" />
+    <Compile Include="Migrations\202009072030590_Update_MenuRecipe_Added_Primary_key.Designer.cs">
+      <DependentUpon>202009072030590_Update_MenuRecipe_Added_Primary_key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -125,6 +133,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Repositories\MenuRecipeRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\RecipeIngredientRepository.cs" />
   </ItemGroup>
@@ -171,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009060925354_Add_Day_FK_to_MenuRecipes_table.resx">
       <DependentUpon>202009060925354_Add_Day_FK_to_MenuRecipes_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071515284_Update_DayId_as_Key.resx">
+      <DependentUpon>202009071515284_Update_DayId_as_Key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009072030590_Update_MenuRecipe_Added_Primary_key.resx">
+      <DependentUpon>202009072030590_Update_MenuRecipe_Added_Primary_key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

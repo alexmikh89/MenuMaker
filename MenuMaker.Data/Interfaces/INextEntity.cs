@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MenuMaker.Data.Interfaces
+﻿namespace MenuMaker.Data.Interfaces
 {
-    public interface INextEntity
+    public interface INextEntity<TKey>
     {
-        int Id { get; set; }
+        TKey Id { get; set; }
     }
 }

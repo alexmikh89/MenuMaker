@@ -9,5 +9,6 @@ namespace MenuMaker.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public int PersonsCount { get; set; }
     }
 }

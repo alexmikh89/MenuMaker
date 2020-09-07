@@ -5,28 +5,33 @@ using MenuMaker.Data.Interfaces;
 using MenuMaker.Data.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Business.Managers
 {
     public class MenuManager : IMenuManager
     {
         protected readonly IMapper _mapper;
-        protected readonly IMenuRepository _menuRepository;
+        protected readonly INextRepository<Menu, int> _menuRepository;
 
-        public MenuManager(IMapper mapper, IMenuRepository menuRepository)
+        public MenuManager(IMapper mapper, INextRepository<Menu, int> menuRepository)
         {
             _mapper = mapper;
             _menuRepository = menuRepository;
         }
-
+                
         public int Create(MenuCreateModel menuCreateModel)
         {
-            var menuModel = _mapper.Map<Menu>(menuCreateModel);
-            var result = _menuRepository.Create(menuModel);
+            var menu = _mapper.Map<Menu>(menuCreateModel);
+            var result = _menuRepository.Create(menu);
+
             return result;
+        }
+
+        public IEnumerable<MenuModel> GetAll()
+        {
+            var menuList = _menuRepository.GetAll();
+            var menuModelsList = _mapper.Map<IEnumerable<MenuModel>>(menuList);
+            return menuModelsList;
         }
 
         public MenuModel FindById(int? id)
@@ -34,17 +39,13 @@ namespace MenuMaker.Business.Managers
             throw new NotImplementedException();
         }
 
-        public IEnumerable<MenuModel> GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
         public IEnumerable<MenuModel> GetAll(Func<MenuModel, bool> func)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(int? id)
+        public void Remove(int id)
         {
             throw new NotImplementedException();
         }

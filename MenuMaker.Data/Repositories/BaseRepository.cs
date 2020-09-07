@@ -1,42 +1,79 @@
 ﻿using MenuMaker.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MenuMaker.Data.Repositories
 {
-    public abstract class BaseRepository<TEntity, TKey> : INextRepository<TEntity, TKey> where TEntity : class, TEntity<TKey>
+    public abstract class BaseRepository<TEntity, TKey> : INextRepository<TEntity, TKey>
+        where TEntity : class, INextEntity<TKey>
     {
-        public int Create(TEntity entity)
+
+        public TKey Create(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                dbSet.Add(entity);
+                var succes = ctx.SaveChanges();
+                if (succes != 1)
+                {
+                    throw new Exception();
+                }
+                var addedEntityId = entity.Id;
+                return addedEntityId;
+            }
         }
 
         public TEntity FindById(TKey id)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var result = dbSet.Find(id);
+                return result;
+            }
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var result = dbSet.ToList();
+                return result;
+            }
         }
 
         public IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var result = dbSet.AsNoTracking().Where(func).ToList();
+                return result;
+            }
         }
 
         public void Remove(TKey id)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbSet = ctx.Set<TEntity>();
+                var entityToRemove = dbSet.Find(id);
+                dbSet.Remove(entityToRemove);
+                ctx.SaveChanges();
+            }
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Entry(entity).State = EntityState.Modified;
+                ctx.SaveChanges();
+            }
         }
     }
 }

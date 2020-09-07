@@ -37,9 +37,9 @@
                                 <i class="fa fa-caret-down"></i>
                             </button>
                             <div class="my-dropdown-content">
-                                <a>View all</a>
+                                @Html.ActionLink("View all", "Index", "Menu")
                                 <a href="#">Favorite</a>
-                                <a href="#">Add new</a>
+                                @Html.ActionLink("Add new", "Create", "Menu")
                                 <a href="#">My menues</a>
                             </div>
                         </div>
@@ -53,7 +53,6 @@
                             <div class="my-dropdown-content">
                                 @Html.ActionLink("View all", "Index", "RecipeViewModels")
                                 <a href="#">My recepies</a>
-                                <a href="#">Favorite</a>
                                 @Html.ActionLink("Add new", "Create", "RecipeViewModels")
                             </div>
                         </div>

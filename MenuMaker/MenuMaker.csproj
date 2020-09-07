@@ -204,6 +204,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreatedRecipePostVM.cs" />
     <Compile Include="Models\MenuCreateViewModel.cs" />
+    <Compile Include="Models\MenuIndexViewModel.cs" />
     <Compile Include="Models\MenuPostViewModel.cs" />
     <Compile Include="Models\MenuRecipeViewModel.cs" />
     <Compile Include="Models\MenuViewModel.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Views\RecipeViewModels\Edit.cshtml" />
     <Content Include="Views\RecipeViewModels\Index.cshtml" />
     <Content Include="Views\Menu\Create.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
