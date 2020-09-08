@@ -84,7 +84,7 @@ namespace MenuMaker.Controllers
         // GET: Menu/Details/5
         public ActionResult Details(int id)
         {
-            var menuModel = _menuManager.FindById(id);
+            MenuModel menuModel = _menuManager.FindById(id);
 
             if (menuModel == null)
             {
