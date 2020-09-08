@@ -33,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PersonsCount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PersonsCount, new { htmlAttributes = new { @class = "form-control", name = "PersonsCount", type = "number", min = 1, value=1 } })
+                @Html.EditorFor(model => model.PersonsCount, new { htmlAttributes = new { @class = "form-control", name = "PersonsCount", type = "number", min = 1, value = 1 } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,12 +70,108 @@
                 </div>
             </div>
 
-            <div class="form-group" @*id="test"*@>
+            <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
                 </div>
             </div>
         </div>
+
+        <div class="wednesday week-day">
+            <div class="recipe-input-fields">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
+                        <input name="DayId" value="3" hidden />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="thursday week-day">
+            <div class="recipe-input-fields">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
+                        <input name="DayId" value="4" hidden />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="friday week-day">
+            <div class="recipe-input-fields">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
+                        <input name="DayId" value="5" hidden />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="saturday week-day">
+            <div class="recipe-input-fields">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
+                        <input name="DayId" value="6" hidden />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="sunday week-day">
+            <div class="recipe-input-fields">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
+                        <input name="DayId" value="7" hidden />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
+                </div>
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
