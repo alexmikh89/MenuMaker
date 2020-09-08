@@ -10,7 +10,7 @@ namespace MenuMaker.Data.Repositories
         where TEntity : class, INextEntity<TKey>
     {
 
-        public TKey Create(TEntity entity)
+        public virtual TKey Create(TEntity entity)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -26,7 +26,7 @@ namespace MenuMaker.Data.Repositories
             }
         }
 
-        public TEntity FindById(TKey id)
+        public virtual TEntity FindById(TKey id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -36,7 +36,7 @@ namespace MenuMaker.Data.Repositories
             }
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +46,7 @@ namespace MenuMaker.Data.Repositories
             }
         }
 
-        public IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
+        public virtual IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -56,7 +56,7 @@ namespace MenuMaker.Data.Repositories
             }
         }
 
-        public void Remove(TKey id)
+        public virtual void Remove(TKey id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,7 +67,7 @@ namespace MenuMaker.Data.Repositories
             }
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             using (var ctx = new ApplicationDbContext())
             {

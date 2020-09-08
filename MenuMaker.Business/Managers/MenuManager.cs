@@ -34,7 +34,7 @@ namespace MenuMaker.Business.Managers
             return menuModelsList;
         }
 
-        public MenuModel FindById(int? id)
+        public MenuModel FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace MenuMaker.Business.Managers
 
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            _menuRepository.Remove(id);
         }
 
         public void Update(MenuModel menuModel)

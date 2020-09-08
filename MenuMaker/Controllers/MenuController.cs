@@ -4,6 +4,7 @@ using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
@@ -23,7 +24,7 @@ namespace MenuMaker.Controllers
             _mapper = mapper;
             _menuManager = menuManager;
             _recipeManager = recipeManager;
-            _menuRecipeManager  = menuRecipeManager;
+            _menuRecipeManager = menuRecipeManager;
         }
 
         // GET: Menu
@@ -71,6 +72,14 @@ namespace MenuMaker.Controllers
                 return RedirectToAction("Index");
             }
             return View(menuPostViewModel);
+        }
+
+
+        // GET: Menu/Delete/5
+        public ActionResult Delete(int id)
+        {
+            _menuManager.Remove(id);
+            return RedirectToAction("Index");
         }
     }
 }
