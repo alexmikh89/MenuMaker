@@ -1,11 +1,8 @@
 ﻿using MenuMaker.Data.Interfaces;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MenuMaker.Data.Models
 {
-    public class MenuRecipe:INextEntity<int>
+    public class MenuRecipe : INextEntity<int>
     {
         public int Id { get; set; }
 
