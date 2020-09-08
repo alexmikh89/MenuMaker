@@ -4,7 +4,6 @@ using MenuMaker.Business.Models;
 using MenuMaker.Data.Models;
 using MenuMaker.Models;
 using System.Collections.Generic;
-using System.Net;
 using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
@@ -39,9 +38,10 @@ namespace MenuMaker.Controllers
         public ActionResult Create()
         {
             var newMenu = new MenuCreateViewModel();
-            var RecipeModelsDropdownList = _recipeManager.GetAll();
-            var RecipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(RecipeModelsDropdownList);
+            var recipeModelsDropdownList = _recipeManager.GetAll();
+            var RecipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
             newMenu.RecipeViewModelsDropdownList = RecipeViewModelsDropdownList;
+
             return View(newMenu);
         }
 
@@ -74,12 +74,26 @@ namespace MenuMaker.Controllers
             return View(menuPostViewModel);
         }
 
-
         // GET: Menu/Delete/5
         public ActionResult Delete(int id)
         {
             _menuManager.Remove(id);
             return RedirectToAction("Index");
+        }
+
+        // GET: Menu/Details/5
+        public ActionResult Details(int id)
+        {
+            var menuModel = _menuManager.FindById(id);
+
+            if (menuModel == null)
+            {
+                return HttpNotFound();
+            }
+
+            var menuViewModel = _mapper.Map<MenuViewModel>(menuModel);
+
+            return View(menuViewModel);
         }
     }
 }

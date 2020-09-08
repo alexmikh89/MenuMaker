@@ -7,6 +7,9 @@ namespace MenuMaker.Models
 {
     public class RecipeIngredientsViewModel
     {
+        [Key]
+        public int Id { get; set; }
+
         public string RecipeName { get; set; }
 
         public int RecipeId { get; set; }

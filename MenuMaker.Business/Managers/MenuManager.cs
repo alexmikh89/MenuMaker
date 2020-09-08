@@ -36,7 +36,9 @@ namespace MenuMaker.Business.Managers
 
         public MenuModel FindById(int id)
         {
-            throw new NotImplementedException();
+            var menu = _menuRepository.FindById(id);
+            var result = _mapper.Map<MenuModel>(menu);
+            return result;
         }
 
 
