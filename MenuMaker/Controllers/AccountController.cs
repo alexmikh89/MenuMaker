@@ -166,16 +166,16 @@ namespace MenuMaker.Controllers
                 var roleStore = new RoleStore<IdentityRole>(context);
                 var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-                var role = roleManager.FindByName("user");
 
-                if (role != null)
-                {
-                    UserManager.AddToRole(user.Id, role.Name);
-                }
 
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    var role = roleManager.FindByName("user");
+                    if (role != null)
+                    {
+                        UserManager.AddToRole(user.Id, role.Name);
+                    }
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
