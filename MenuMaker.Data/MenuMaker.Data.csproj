@@ -121,6 +121,10 @@
     <Compile Include="Migrations\202009072030590_Update_MenuRecipe_Added_Primary_key.Designer.cs">
       <DependentUpon>202009072030590_Update_MenuRecipe_Added_Primary_key.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009081721470_Add_primary_key_to_recipeIngredients.cs" />
+    <Compile Include="Migrations\202009081721470_Add_primary_key_to_recipeIngredients.Designer.cs">
+      <DependentUpon>202009081721470_Add_primary_key_to_recipeIngredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -186,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009072030590_Update_MenuRecipe_Added_Primary_key.resx">
       <DependentUpon>202009072030590_Update_MenuRecipe_Added_Primary_key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009081721470_Add_primary_key_to_recipeIngredients.resx">
+      <DependentUpon>202009081721470_Add_primary_key_to_recipeIngredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

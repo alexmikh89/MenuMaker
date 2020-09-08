@@ -9,7 +9,6 @@ namespace MenuMaker.Data.Repositories
     public abstract class BaseRepository<TEntity, TKey> : INextRepository<TEntity, TKey>
         where TEntity : class, INextEntity<TKey>
     {
-
         public virtual TKey Create(TEntity entity)
         {
             using (var ctx = new ApplicationDbContext())
