@@ -111,16 +111,6 @@ namespace MenuMaker.Controllers
             menuEditVM.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
             return View(menuEditVM);
-
-            //IngredientModel ingredientModel = _ingredientManager.FindById(id);
-            //IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
-
-            //if (ingredientViewModel == null)
-            //{
-            //    return HttpNotFound();
-            //}
-
-            //return View(ingredientViewModel);
         }
 
         [HttpPost]
@@ -137,9 +127,6 @@ namespace MenuMaker.Controllers
             }
 
             return RedirectToAction("Details/" + menuEditPM.Id);
-
-            return View(/*ingredientViewModel*/);
         }
-
     }
 }
