@@ -13,16 +13,18 @@ namespace MenuMaker.Controllers
         private readonly IMapper _mapper;
         private readonly IMenuManager _menuManager;
         private readonly IMenuRecipeManager _menuRecipeManager;
+        private readonly IDayManager _dayManager;
 
         private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
 
         public MenuController(IMapper mapper, IMenuManager menuManager,
             IEntityManager<Recipe, RecipeModel> recipeManager,
-            IMenuRecipeManager menuRecipeManager)
+            IDayManager dayManager, IMenuRecipeManager menuRecipeManager)
         {
             _mapper = mapper;
             _menuManager = menuManager;
             _recipeManager = recipeManager;
+            _dayManager = dayManager;
             _menuRecipeManager = menuRecipeManager;
         }
 
@@ -61,7 +63,7 @@ namespace MenuMaker.Controllers
 
                 for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
                 {
-                    var menuRecipeCreateModel = new MenuRecipeCreateModel()
+                    var menuRecipeCreateModel = new MenuRecipePostModel()
                     {
                         MenuId = menuId,
                         DayId = menuRecipePostViewModel.DayId[i],
@@ -110,17 +112,12 @@ namespace MenuMaker.Controllers
             var recipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
             menuEditVM.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
+            var dayViewModels = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
+            dayViewModels.Sort();
+
+            ViewData["WeekDays"] = dayViewModels;
+
             return View(menuEditVM);
-
-            //IngredientModel ingredientModel = _ingredientManager.FindById(id);
-            //IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
-
-            //if (ingredientViewModel == null)
-            //{
-            //    return HttpNotFound();
-            //}
-
-            //return View(ingredientViewModel);
         }
 
         [HttpPost]
@@ -130,16 +127,20 @@ namespace MenuMaker.Controllers
 
             if (ModelState.IsValid)
             {
+                var menuEditModel = _mapper.Map<MenuEditModel>(menuEditPM);
+                _menuManager.Update(menuEditModel);
+
                 //    var ingredientModel = _mapper.Map<IngredientModel>(ingredientViewModel);
                 //    _ingredientManager.Update(ingredientModel);
 
                 //    return RedirectToAction("Index");
+                return RedirectToAction("Details/" + menuEditPM.Id);
             }
 
-            return RedirectToAction("Details/" + menuEditPM.Id);
+            var menuModel = _menuManager.FindById(menuEditPM.Id);
+            var menuEditVM = _mapper.Map<MenuEditVM>(menuModel);
 
-            return View(/*ingredientViewModel*/);
+            return View(menuEditVM);
         }
-
     }
 }

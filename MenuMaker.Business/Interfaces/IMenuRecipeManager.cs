@@ -9,7 +9,7 @@ namespace MenuMaker.Business.Interfaces
 {
     public interface IMenuRecipeManager
     {
-        int Create(MenuRecipeCreateModel menuCreateModel);
+        int Create(MenuRecipePostModel menuCreateModel);
         MenuRecipeModel FindById(int id);
         IEnumerable<MenuRecipeModel> GetAll();
         IEnumerable<MenuRecipeModel> GetAll(Func<MenuRecipeModel, bool> func);

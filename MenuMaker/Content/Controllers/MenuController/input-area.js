@@ -5,6 +5,8 @@
     hold.find(".recipe-input-fields").eq(-1).after(cloneDiv);
 }
 
+
+
 function Remove(button) {
     var row = $(button).closest("TR");
     var name = $("TD", row).eq(0).html();

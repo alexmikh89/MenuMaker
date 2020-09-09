@@ -45,12 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDayManager.cs" />
     <Compile Include="Interfaces\IEntityManager.cs" />
     <Compile Include="Interfaces\IEntityModel.cs" />
     <Compile Include="Interfaces\IMenuManager.cs" />
     <Compile Include="Interfaces\IMenuRecipeManager.cs" />
     <Compile Include="Interfaces\IRecipeIngredientsManager.cs" />
     <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="Managers\DayManager.cs" />
     <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Managers\MenuManager.cs" />
     <Compile Include="Managers\MenuRecipeManager.cs" />
@@ -59,8 +61,9 @@
     <Compile Include="Models\DayModel.cs" />
     <Compile Include="Models\IngredientModel.cs" />
     <Compile Include="Models\MenuCreateModel.cs" />
+    <Compile Include="Models\MenuEditModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
-    <Compile Include="Models\MenuRecipeCreateModel.cs" />
+    <Compile Include="Models\MenuRecipePostModel.cs" />
     <Compile Include="Models\MenuRecipeModel.cs" />
     <Compile Include="Models\RecipeIngredientsModel.cs" />
     <Compile Include="Models\RecipeModel.cs" />

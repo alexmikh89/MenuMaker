@@ -19,7 +19,7 @@ namespace MenuMaker.Business.Managers
             _menuRecipeRepository = menuRecipeRepository;
         }
 
-        public int Create(MenuRecipeCreateModel menuRecipeCreateModel)
+        public int Create(MenuRecipePostModel menuRecipeCreateModel)
         {
             var menuRecipe = _mapper.Map<MenuRecipe>(menuRecipeCreateModel);
 

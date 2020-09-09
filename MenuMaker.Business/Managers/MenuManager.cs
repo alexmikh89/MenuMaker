@@ -18,7 +18,7 @@ namespace MenuMaker.Business.Managers
             _mapper = mapper;
             _menuRepository = menuRepository;
         }
-                
+
         public int Create(MenuCreateModel menuCreateModel)
         {
             var menu = _mapper.Map<Menu>(menuCreateModel);
@@ -52,9 +52,23 @@ namespace MenuMaker.Business.Managers
             _menuRepository.Remove(id);
         }
 
-        public void Update(MenuModel menuModel)
+        public void Update(MenuEditModel menuEditModel)
         {
-            throw new NotImplementedException();
+            var editedMenu = _mapper.Map<Menu>(menuEditModel);
+
+            for (int i = 0; i < menuEditModel.RecipeId.Length; i++)
+            {
+                if (menuEditModel.RecipeId[i] != 0)
+                {
+                    editedMenu.MenuRecipes.Add(new MenuRecipe()
+                    {
+                        MenuId = menuEditModel.Id,
+                        RecipeId = menuEditModel.RecipeId[i],
+                        DayId = menuEditModel.DayId[i]
+                    });
+                }
+            }
+            _menuRepository.Update(editedMenu);
         }
     }
 }

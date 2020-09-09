@@ -46,12 +46,15 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<Func<MenuIndexViewModel, bool>, Func<MenuModel, bool>>().ReverseMap();
 
                 //MenuRecipe mapping configs.
-                cfg.CreateMap<MenuRecipeCreateModel, MenuRecipe>().ReverseMap();
-                cfg.CreateMap<Func<MenuRecipeCreateModel, bool>, Func<MenuRecipe, bool>>().ReverseMap();
-                cfg.CreateMap<MenuRecipeCreateModel, MenuRecipe>().ReverseMap();
+                cfg.CreateMap<MenuRecipePostModel, MenuRecipe>().ReverseMap();
+                cfg.CreateMap<Func<MenuRecipePostModel, bool>, Func<MenuRecipe, bool>>().ReverseMap();
+                cfg.CreateMap<MenuRecipePostModel, MenuRecipe>().ReverseMap();
                 cfg.CreateMap<MenuRecipeViewModel, MenuRecipeModel>().ReverseMap();
                 cfg.CreateMap<MenuRecipeModel, MenuRecipe>().ReverseMap();
                 cfg.CreateMap<MenuEditVM, MenuModel>().ReverseMap();
+                cfg.CreateMap<MenuEditPM, MenuEditModel>().ReverseMap();
+                cfg.CreateMap<Menu, MenuEditModel>().ReverseMap();
+
 
                 //Day mapping configs.
                 cfg.CreateMap<Day, DayModel>().ReverseMap();

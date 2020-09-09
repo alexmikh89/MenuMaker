@@ -1,5 +1,4 @@
 ﻿using MenuMaker.Data.Models;
-using System.Data.Entity;
 using System.Linq;
 
 namespace MenuMaker.Data.Repositories
@@ -14,7 +13,7 @@ namespace MenuMaker.Data.Repositories
                 var result = dbSet.Find(id);
 
                 ctx.Entry(result).Collection(i => i.MenuRecipes).Load();
-                //dbSet.Include(i => i.MenuRecipes).ToList();
+
                 foreach (var menuRecipe in result.MenuRecipes)
                 {
                     ctx.Entry(menuRecipe).Reference(i => i.Recipe).Load();
@@ -35,6 +34,49 @@ namespace MenuMaker.Data.Repositories
                 var dbMenuRecipeSet = ctx.Set<MenuRecipe>();
                 var menuRecipesToRemove = dbMenuRecipeSet.Where(i => i.MenuId == id).ToList();
                 dbMenuRecipeSet.RemoveRange(menuRecipesToRemove);
+
+                ctx.SaveChanges();
+            }
+        }
+
+        public override void Update(Menu newMenu)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbMenuSet = ctx.Set<Menu>();
+                var dbMenuRecipeSet = ctx.Set<MenuRecipe>();
+
+                var existingMenu = dbMenuSet.Find(newMenu.Id);
+                ctx.Entry(existingMenu).Collection(i => i.MenuRecipes).Load();
+
+                var deletedRecipes =
+                    existingMenu.MenuRecipes.Select(i => new { i.DayId, i.RecipeId })
+                    .Except(newMenu.MenuRecipes.Select(i => new { i.DayId, i.RecipeId }))
+                    .ToList();
+
+                foreach (var deletedRecipe in deletedRecipes)
+                {
+                    dbMenuRecipeSet.Remove(
+                        existingMenu.MenuRecipes
+                        .Where(i => i.DayId == deletedRecipe.DayId)
+                        .Where(i => i.RecipeId == deletedRecipe.RecipeId)
+                        .FirstOrDefault());
+                }
+
+                var addedRecipes = newMenu.MenuRecipes.Select(i => new { i.DayId, i.RecipeId })
+                    .Except(existingMenu.MenuRecipes.Select(i => new { i.DayId, i.RecipeId }))
+                    .ToList();
+
+                foreach (var addedRecipe in addedRecipes)
+                {
+                    dbMenuRecipeSet.Add(
+                        new MenuRecipe()
+                        {
+                            MenuId = existingMenu.Id,
+                            RecipeId = addedRecipe.RecipeId,
+                            DayId = addedRecipe.DayId
+                        });
+                }
 
                 ctx.SaveChanges();
             }
