@@ -13,7 +13,7 @@ namespace MenuMaker
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 //defaults: new { controller = "RecipeViewModels", action = "Create", id = UrlParameter.Optional }
-                defaults: new { controller = "Menu", action = "details", id = 7 }
+                defaults: new { controller = "Menu", action = "edit", id = 7 }
             );
         }
     }

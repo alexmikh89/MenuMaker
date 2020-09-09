@@ -179,10 +179,12 @@
             <div class="recipe-input-fields">
                 <div class="form-group">
                     @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-md-10">                        
                         @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
                         <input name="DayId" value="7" hidden />
+                    </div>
+                    <div class="col-md-2">
                     </div>
                 </div>
             </div>
@@ -208,5 +210,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="@Url.Content("~/Content/Controllers/MenuController/Create.js")"></script>
+    <script src="@Url.Content("~/Content/Controllers/MenuController/input-area.js")"></script>
 }

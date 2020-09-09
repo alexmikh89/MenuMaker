@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Details";
     var weekDayIds = Model.MenuRecipes.Select(i => i.Day.Id).Distinct().ToList();
-
 }
 
 <h2>Details</h2>
@@ -36,42 +35,12 @@
             @Html.DisplayFor(model => model.PersonsCount)
         </dd>
 
-
         @foreach (var weekDayId in weekDayIds)
         {
             var currentDayRecipes = Model.MenuRecipes.Where(i => i.DayId == weekDayId).ToList();
 
             @Html.Partial("DayCellPartView", currentDayRecipes)
-            
-            @*<dd>
-                @Html.Partial("RecipesInDayPartWiev", currentDayRecipes)
-            </dd>*@
         }
-
-
-        @*<div>
-                <h4>
-                    @Html.Label("Monday")
-                </h4>
-                <div class="monday week-day">
-                    <div class="recipe-input-fields">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.RecipeId, "RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownListFor(m => m.RecipeId, new SelectList(Model.RecipeViewModelsDropdownList, "id", "name"), "-Please select ingredient-", htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.RecipeId, "", new { @class = "text-danger" })
-                                <input name="DayId" value="1" hidden />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="button" value="Add recipe" class="btn btn-default" style='width:120px' onclick="GetDynamicRecipeInputFields(this)" />
-                        </div>
-                    </div>
-                </div>
-            </div>*@
     </dl>
 </div>
 <p>

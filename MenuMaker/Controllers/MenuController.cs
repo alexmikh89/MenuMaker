@@ -39,8 +39,8 @@ namespace MenuMaker.Controllers
         {
             var newMenu = new MenuCreateViewModel();
             var recipeModelsDropdownList = _recipeManager.GetAll();
-            var RecipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
-            newMenu.RecipeViewModelsDropdownList = RecipeViewModelsDropdownList;
+            var recipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
+            newMenu.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
             return View(newMenu);
         }
@@ -95,5 +95,51 @@ namespace MenuMaker.Controllers
 
             return View(menuViewModel);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var menuModel = _menuManager.FindById(id);
+            if (menuModel == null)
+            {
+                return HttpNotFound();
+            }
+
+            var menuEditVM = _mapper.Map<MenuEditVM>(menuModel);
+
+            var recipeModelsDropdownList = _recipeManager.GetAll();
+            var recipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
+            menuEditVM.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
+
+            return View(menuEditVM);
+
+            //IngredientModel ingredientModel = _ingredientManager.FindById(id);
+            //IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
+
+            //if (ingredientViewModel == null)
+            //{
+            //    return HttpNotFound();
+            //}
+
+            //return View(ingredientViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(MenuEditPM menuEditPM)
+        {
+
+            if (ModelState.IsValid)
+            {
+                //    var ingredientModel = _mapper.Map<IngredientModel>(ingredientViewModel);
+                //    _ingredientManager.Update(ingredientModel);
+
+                //    return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Details/" + menuEditPM.Id);
+
+            return View(/*ingredientViewModel*/);
+        }
+
     }
 }

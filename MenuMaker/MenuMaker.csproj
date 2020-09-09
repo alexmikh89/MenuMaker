@@ -204,6 +204,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\CreatedRecipePostVM.cs" />
     <Compile Include="Models\MenuCreateViewModel.cs" />
+    <Compile Include="Models\MenuEditPM.cs" />
+    <Compile Include="Models\MenuEditVM.cs" />
     <Compile Include="Models\MenuIndexViewModel.cs" />
     <Compile Include="Models\MenuPostViewModel.cs" />
     <Compile Include="Models\MenuRecipeViewModel.cs" />
@@ -219,7 +221,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Controllers\MenuController\Create.js" />
+    <Content Include="Content\Controllers\MenuController\input-area.js" />
     <Content Include="Content\Controllers\RecipeViewModelsController\Create.js" />
     <Content Include="Content\my-navbar.css" />
     <Content Include="favicon.ico" />
@@ -290,10 +292,10 @@
     <Content Include="Views\Menu\Details.cshtml" />
     <Content Include="Views\Menu\RecipesInDayPartWiev.cshtml" />
     <Content Include="Views\Menu\DayCellPartView.cshtml" />
+    <Content Include="Views\Menu\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Day\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
