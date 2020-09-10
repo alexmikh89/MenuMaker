@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    var weekDayIds = Model.MenuRecipes.Select(i => i.Day.Id).Distinct().ToList();
+    var weekDays = Model.Days;
 }
 
 <h2>Details</h2>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(model => model.PersonsCount)
         </dd>
 
-        @foreach (var weekDayId in weekDayIds)
+        @foreach (var weekDay in weekDays)
         {
-            var currentDayRecipes = Model.MenuRecipes.Where(i => i.DayId == weekDayId).ToList();
+            var currentDayRecipes = Model.MenuRecipes.Where(i => i.DayId == weekDay.Id).ToList();
 
             @Html.Partial("DayCellPartView", currentDayRecipes)
         }

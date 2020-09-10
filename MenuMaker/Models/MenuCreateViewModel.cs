@@ -13,5 +13,6 @@ namespace MenuMaker.Models
         public int RecipeId { get; set; }
 
         public List<RecipeViewModel> RecipeViewModelsDropdownList { get; set; }
+        public List<DayViewModel> Days { get; set; }
     }
 }

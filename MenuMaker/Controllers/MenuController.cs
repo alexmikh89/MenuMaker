@@ -12,20 +12,18 @@ namespace MenuMaker.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IMenuManager _menuManager;
-        //private readonly IMenuRecipeManager _menuRecipeManager;
         private readonly IDayManager _dayManager;
 
         private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
 
         public MenuController(IMapper mapper, IMenuManager menuManager,
             IEntityManager<Recipe, RecipeModel> recipeManager,
-            IDayManager dayManager/*, IMenuRecipeManager menuRecipeManager*/)
+            IDayManager dayManager)
         {
             _mapper = mapper;
             _menuManager = menuManager;
             _recipeManager = recipeManager;
             _dayManager = dayManager;
-            //_menuRecipeManager = menuRecipeManager;
         }
 
         // GET: Menu
@@ -44,11 +42,12 @@ namespace MenuMaker.Controllers
             var recipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
             newMenu.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
+            newMenu.Days = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
+
             return View(newMenu);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(MenuPostViewModel menuPostViewModel)
         {
             if (ModelState.IsValid)
@@ -61,20 +60,7 @@ namespace MenuMaker.Controllers
                     return new HttpStatusCodeResult(400);
                 }
 
-
-                //for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
-                //{
-                //    var menuRecipeCreateModel = new MenuRecipePostModel()
-                //    {
-                //        MenuId = menuId,
-                //        DayId = menuRecipePostViewModel.DayId[i],
-                //        RecipeId = menuRecipePostViewModel.RecipeId[i]
-                //    };
-                //    _menuRecipeManager.Create(menuRecipeCreateModel);
-                //};
                 return RedirectToAction("Details/" + menuId);
-                //return RedirectToAction("Index");
-
             }
             return View(menuPostViewModel);
         }
@@ -98,6 +84,8 @@ namespace MenuMaker.Controllers
 
             var menuViewModel = _mapper.Map<MenuViewModel>(menuModel);
 
+            menuViewModel.Days = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
+
             return View(menuViewModel);
         }
 
@@ -116,16 +104,10 @@ namespace MenuMaker.Controllers
             menuEditVM.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
             menuEditVM.Days = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
-            //var dayViewModels = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
-            //dayViewModels.Sort();
-
-            //ViewData["WeekDays"] = dayViewModels;
-
             return View(menuEditVM);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Edit(MenuEditPM menuEditPM)
         {
 

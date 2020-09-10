@@ -1,5 +1,4 @@
 ﻿using MenuMaker.Data.Models;
-using System;
 using System.Linq;
 
 namespace MenuMaker.Data.Repositories
@@ -14,6 +13,7 @@ namespace MenuMaker.Data.Repositories
                 var dbMenuRecipeSet = ctx.Set<MenuRecipe>();
 
                 dbMenuSet.Add(newMenu);
+                ctx.SaveChanges();
                 var addedMenuId = newMenu.Id;
 
                 var addedRecipes = newMenu.MenuRecipes.ToList();
@@ -28,8 +28,8 @@ namespace MenuMaker.Data.Repositories
                             DayId = addedRecipe.DayId
                         });
                 }
-                var succes = ctx.SaveChanges();
-                
+                ctx.SaveChanges();
+
 
                 return addedMenuId;
             }
@@ -43,7 +43,10 @@ namespace MenuMaker.Data.Repositories
                 var dbSet = ctx.Set<Menu>();
                 var result = dbSet.Find(id);
 
-                ctx.Entry(result).Collection(i => i.MenuRecipes).Load();
+                if (result.MenuRecipes != null)
+                {
+                    ctx.Entry(result).Collection(i => i.MenuRecipes).Load();
+                }
 
                 foreach (var menuRecipe in result.MenuRecipes)
                 {

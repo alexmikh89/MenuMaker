@@ -29,23 +29,11 @@ namespace MenuMaker.Business.Managers
                 {
                     newMenu.MenuRecipes.Add(new MenuRecipe()
                     {
-                        //MenuId = menuCreateModel.Id,
                         RecipeId = menuCreateModel.RecipeId[i],
                         DayId = menuCreateModel.DayId[i]
                     });
                 }
             }
-
-            //for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
-            //{
-            //    var menuRecipeCreateModel = new MenuRecipePostModel()
-            //    {
-            //        MenuId = menuId,
-            //        DayId = menuRecipePostViewModel.DayId[i],
-            //        RecipeId = menuRecipePostViewModel.RecipeId[i]
-            //    };
-            //    _menuRecipeManager.Create(menuRecipeCreateModel);
-            //};
             var result = _menuRepository.Create(newMenu);
 
             return result;
