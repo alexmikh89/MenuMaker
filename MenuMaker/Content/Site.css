@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.hidden{
+    position:absolute;
+    left:-9000px;
+    top:-9000px;
+    overflow: hidden;
+}
+
+.recipe-input-fields select {
+    width: 250px;
+    display: inline-block;
+}
+
+.recipe-input-fields .btn{
+    margin-top:-3px;
+}

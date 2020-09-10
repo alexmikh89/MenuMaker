@@ -6,8 +6,7 @@
 
 @{
     ViewBag.Title = "Edit";
-
-    var weekDays = (List<MenuMaker.Models.DayViewModel>)ViewData["WeekDays"];
+    var weekDays = Model.Days;
 }
 
 <h2>Edit</h2>
@@ -54,6 +53,23 @@
                 </h4>
             </div>
             <div class="week-day">
+                <div class="hidden">
+                    <div class="recipe-input-fields">
+
+                        @{
+                            var recipeDropdownSelectList2 = new SelectList(Model.RecipeViewModelsDropdownList, "id", "name");
+                        }
+                        <div class="form-group">
+                            @Html.Label("RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("RecipeId", recipeDropdownSelectList2, "-No recipe selected-", htmlAttributes: new { @class = "form-control" })
+                                <input name="DayId" value=@day.Id hidden />
+                                <button type="button" class="btn btn-default" style='width:120px' onclick="Remove(this)">Remove</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <div class="recipe-input-fields">
                     @foreach (var menuRecipe in Model.MenuRecipes.Where(i => i.DayId == day.Id).ToList())
                     {
@@ -63,6 +79,7 @@
                             @Html.Label("RecipeId", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.DropDownList("RecipeId", recipeDropdownSelectList, "-No recipe selected-", htmlAttributes: new { @class = "form-control" })
+                                <button type="button" class="btn btn-default" style='width:120px' onclick="Remove(this)">Remove</button>
                                 <input name="DayId" value=@day.Id hidden />
                             </div>
                         </div>

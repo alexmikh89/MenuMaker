@@ -1,10 +1,41 @@
 ﻿using MenuMaker.Data.Models;
+using System;
 using System.Linq;
 
 namespace MenuMaker.Data.Repositories
 {
     public class MenuRepository : BaseRepository<Menu, int>
     {
+        public override int Create(Menu newMenu)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var dbMenuSet = ctx.Set<Menu>();
+                var dbMenuRecipeSet = ctx.Set<MenuRecipe>();
+
+                dbMenuSet.Add(newMenu);
+                var addedMenuId = newMenu.Id;
+
+                var addedRecipes = newMenu.MenuRecipes.ToList();
+
+                foreach (var addedRecipe in addedRecipes)
+                {
+                    dbMenuRecipeSet.Add(
+                        new MenuRecipe()
+                        {
+                            MenuId = addedMenuId,
+                            RecipeId = addedRecipe.RecipeId,
+                            DayId = addedRecipe.DayId
+                        });
+                }
+                var succes = ctx.SaveChanges();
+                
+
+                return addedMenuId;
+            }
+
+
+        }
         public override Menu FindById(int id)
         {
             using (var ctx = new ApplicationDbContext())

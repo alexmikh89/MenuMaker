@@ -12,20 +12,20 @@ namespace MenuMaker.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IMenuManager _menuManager;
-        private readonly IMenuRecipeManager _menuRecipeManager;
+        //private readonly IMenuRecipeManager _menuRecipeManager;
         private readonly IDayManager _dayManager;
 
         private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
 
         public MenuController(IMapper mapper, IMenuManager menuManager,
             IEntityManager<Recipe, RecipeModel> recipeManager,
-            IDayManager dayManager, IMenuRecipeManager menuRecipeManager)
+            IDayManager dayManager/*, IMenuRecipeManager menuRecipeManager*/)
         {
             _mapper = mapper;
             _menuManager = menuManager;
             _recipeManager = recipeManager;
             _dayManager = dayManager;
-            _menuRecipeManager = menuRecipeManager;
+            //_menuRecipeManager = menuRecipeManager;
         }
 
         // GET: Menu
@@ -49,29 +49,32 @@ namespace MenuMaker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MenuPostViewModel menuPostViewModel, MenuRecipePostViewModel menuRecipePostViewModel)
+        public ActionResult Create(MenuPostViewModel menuPostViewModel)
         {
             if (ModelState.IsValid)
             {
                 var menuCreateModel = _mapper.Map<MenuCreateModel>(menuPostViewModel);
                 var menuId = _menuManager.Create(menuCreateModel);
 
-                if (menuRecipePostViewModel.DayId.Length != menuRecipePostViewModel.RecipeId.Length)
+                if (menuPostViewModel.DayId.Length != menuPostViewModel.RecipeId.Length)
                 {
                     return new HttpStatusCodeResult(400);
                 }
 
-                for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
-                {
-                    var menuRecipeCreateModel = new MenuRecipePostModel()
-                    {
-                        MenuId = menuId,
-                        DayId = menuRecipePostViewModel.DayId[i],
-                        RecipeId = menuRecipePostViewModel.RecipeId[i]
-                    };
-                    _menuRecipeManager.Create(menuRecipeCreateModel);
-                };
-                return RedirectToAction("Index");
+
+                //for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
+                //{
+                //    var menuRecipeCreateModel = new MenuRecipePostModel()
+                //    {
+                //        MenuId = menuId,
+                //        DayId = menuRecipePostViewModel.DayId[i],
+                //        RecipeId = menuRecipePostViewModel.RecipeId[i]
+                //    };
+                //    _menuRecipeManager.Create(menuRecipeCreateModel);
+                //};
+                return RedirectToAction("Details/" + menuId);
+                //return RedirectToAction("Index");
+
             }
             return View(menuPostViewModel);
         }
@@ -112,10 +115,11 @@ namespace MenuMaker.Controllers
             var recipeViewModelsDropdownList = _mapper.Map<List<RecipeViewModel>>(recipeModelsDropdownList);
             menuEditVM.RecipeViewModelsDropdownList = recipeViewModelsDropdownList;
 
-            var dayViewModels = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
-            dayViewModels.Sort();
+            menuEditVM.Days = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
+            //var dayViewModels = _mapper.Map<List<DayViewModel>>(_dayManager.GetAll());
+            //dayViewModels.Sort();
 
-            ViewData["WeekDays"] = dayViewModels;
+            //ViewData["WeekDays"] = dayViewModels;
 
             return View(menuEditVM);
         }
@@ -130,10 +134,6 @@ namespace MenuMaker.Controllers
                 var menuEditModel = _mapper.Map<MenuEditModel>(menuEditPM);
                 _menuManager.Update(menuEditModel);
 
-                //    var ingredientModel = _mapper.Map<IngredientModel>(ingredientViewModel);
-                //    _ingredientManager.Update(ingredientModel);
-
-                //    return RedirectToAction("Index");
                 return RedirectToAction("Details/" + menuEditPM.Id);
             }
 

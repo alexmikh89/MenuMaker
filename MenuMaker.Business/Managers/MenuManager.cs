@@ -21,8 +21,32 @@ namespace MenuMaker.Business.Managers
 
         public int Create(MenuCreateModel menuCreateModel)
         {
-            var menu = _mapper.Map<Menu>(menuCreateModel);
-            var result = _menuRepository.Create(menu);
+            var newMenu = _mapper.Map<Menu>(menuCreateModel);
+
+            for (int i = 0; i < menuCreateModel.RecipeId.Length; i++)
+            {
+                if (menuCreateModel.RecipeId[i] != 0)
+                {
+                    newMenu.MenuRecipes.Add(new MenuRecipe()
+                    {
+                        //MenuId = menuCreateModel.Id,
+                        RecipeId = menuCreateModel.RecipeId[i],
+                        DayId = menuCreateModel.DayId[i]
+                    });
+                }
+            }
+
+            //for (int i = 0; i < menuRecipePostViewModel.RecipeId.Length; i++)
+            //{
+            //    var menuRecipeCreateModel = new MenuRecipePostModel()
+            //    {
+            //        MenuId = menuId,
+            //        DayId = menuRecipePostViewModel.DayId[i],
+            //        RecipeId = menuRecipePostViewModel.RecipeId[i]
+            //    };
+            //    _menuRecipeManager.Create(menuRecipeCreateModel);
+            //};
+            var result = _menuRepository.Create(newMenu);
 
             return result;
         }

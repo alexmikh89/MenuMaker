@@ -28,8 +28,8 @@ namespace MenuMaker.Autofac
             builder.RegisterType<MenuRepository>().As<INextRepository<Menu, int>>();
             builder.RegisterType<MenuManager>().As<IMenuManager>();
 
-            builder.RegisterType<MenuRecipeRepository>().As<INextRepository<MenuRecipe, int>>();
-            builder.RegisterType<MenuRecipeManager>().As<IMenuRecipeManager>();
+            //builder.RegisterType<MenuRecipeRepository>().As<INextRepository<MenuRecipe, int>>();
+            //builder.RegisterType<MenuRecipeManager>().As<IMenuRecipeManager>();
 
 
 
