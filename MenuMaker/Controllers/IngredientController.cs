@@ -9,12 +9,12 @@ using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
-    public class IngredientViewModelsController : Controller
+    public class IngredientController : Controller
     {
         private readonly IEntityManager<Ingredient, IngredientModel> _ingredientManager;
         private readonly IMapper _mapper;
 
-        public IngredientViewModelsController(IMapper mapper,  IEntityManager<Ingredient, IngredientModel> entityManager)
+        public IngredientController(IMapper mapper,  IEntityManager<Ingredient, IngredientModel> entityManager)
         {
             _ingredientManager = entityManager;
             _mapper = mapper;
