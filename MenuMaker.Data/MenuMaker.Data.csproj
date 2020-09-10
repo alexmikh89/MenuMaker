@@ -138,6 +138,7 @@
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\DayRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
+    <Compile Include="Repositories\IngredientRepository.cs" />
     <Compile Include="Repositories\MenuRecipeRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\RecipeIngredientRepository.cs" />

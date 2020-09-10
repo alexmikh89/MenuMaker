@@ -1,23 +1,21 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Models;
-using MenuMaker.Data.Models;
 using MenuMaker.Models;
 using System.Collections.Generic;
-using System.Net;
 using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
     public class IngredientController : Controller
     {
-        private readonly IEntityManager<Ingredient, IngredientModel> _ingredientManager;
+        private readonly IIngredientManager _ingredientManager;
         private readonly IMapper _mapper;
 
-        public IngredientController(IMapper mapper,  IEntityManager<Ingredient, IngredientModel> entityManager)
+        public IngredientController(IMapper mapper, IIngredientManager ingredientManager)
         {
-            _ingredientManager = entityManager;
             _mapper = mapper;
+            _ingredientManager = ingredientManager;
         }
 
         // GET: IngredientViewModels
@@ -30,13 +28,9 @@ namespace MenuMaker.Controllers
         }
 
         // GET: IngredientViewModels/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var ingredientModel = _ingredientManager.FindById(id);            
+            var ingredientModel = _ingredientManager.FindById(id);
 
             if (ingredientModel == null)
             {
@@ -54,10 +48,7 @@ namespace MenuMaker.Controllers
         }
 
         // POST: IngredientViewModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(IngredientViewModel ingredientViewModel)
         {
             if (ModelState.IsValid)
@@ -72,12 +63,8 @@ namespace MenuMaker.Controllers
         }
 
         // GET: IngredientViewModels/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
 
             IngredientModel ingredientModel = _ingredientManager.FindById(id);
             IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
@@ -91,11 +78,8 @@ namespace MenuMaker.Controllers
         }
 
         // POST: IngredientViewModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit( IngredientViewModel ingredientViewModel)
+        public ActionResult Edit(IngredientViewModel ingredientViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -108,28 +92,13 @@ namespace MenuMaker.Controllers
         }
 
         // GET: IngredientViewModels/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
             var ingredientModel = _ingredientManager.FindById(id);
-
-            IngredientViewModel ingredientViewModel = _mapper.Map<IngredientViewModel>(ingredientModel);
-            if (ingredientViewModel == null)
+            if (ingredientModel == null)
             {
                 return HttpNotFound();
             }
-            return View(ingredientViewModel);
-        }
-
-        // POST: IngredientViewModels/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
             _ingredientManager.Remove(id);
             return RedirectToAction("Index");
         }

@@ -25,10 +25,7 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<CreatedRecipeModel, RecipeModel>()
                 .ForMember(i => i.Name, j => j.MapFrom(src => src.RecipeName)).ReverseMap();
 
-                cfg.CreateMap<Ingredient, IngredientModel>().ReverseMap();
-                cfg.CreateMap<Func<Ingredient, bool>, Func<IngredientModel, bool>>().ReverseMap();
-                cfg.CreateMap<IngredientModel, IngredientViewModel>().ReverseMap();
-                cfg.CreateMap<Func<IngredientModel, bool>, Func<IngredientViewModel, bool>>().ReverseMap();
+
 
                 cfg.CreateMap<RecipeIngredients, RecipeIngredientsModel>().ReverseMap();
                 cfg.CreateMap<Func<RecipeIngredients, bool>, Func<RecipeIngredientsModel, bool>>().ReverseMap();
@@ -59,6 +56,10 @@ namespace MenuMaker.Autofac
                 //Day mapping configs.
                 cfg.CreateMap<Day, DayModel>().ReverseMap();
                 cfg.CreateMap<DayModel, DayViewModel>().ReverseMap();
+
+                //IngredientMapping
+                cfg.CreateMap<IngredientModel, IngredientViewModel>().ReverseMap();
+                cfg.CreateMap<Ingredient, IngredientModel>().ReverseMap();
 
             }))
                 .AsSelf()

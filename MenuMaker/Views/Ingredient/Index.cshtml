@@ -15,9 +15,9 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th></th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.RecipeIngredients)
-        </th>
+        </th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -31,7 +31,7 @@
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
-            <td>
+            @*<td>
                 @foreach (var ingredient in Model.ToList())
                 {
                     //var recipes = ingredient.RecipeIngredientsViewModels.Where(i => i.IngredientId == ingredient.Id).ToList();
@@ -39,7 +39,7 @@
                 }
 
 
-            </td>
+            </td>*@
         </tr>
     }
 

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MenuMaker.Data.Models;
 
 namespace MenuMaker.Data.Repositories
 {
-    public class IngredientRepository
+    public class IngredientRepository : BaseRepository<Ingredient, int>
     {
     }
 }

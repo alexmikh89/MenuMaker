@@ -277,11 +277,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\GetIngredients.cshtml" />
-    <Content Include="Views\IngredientViewModels\Create.cshtml" />
-    <Content Include="Views\IngredientViewModels\Delete.cshtml" />
-    <Content Include="Views\IngredientViewModels\Details.cshtml" />
-    <Content Include="Views\IngredientViewModels\Edit.cshtml" />
-    <Content Include="Views\IngredientViewModels\Index.cshtml" />
+    <Content Include="Views\Ingredient\Create.cshtml" />
+    <Content Include="Views\Ingredient\Delete.cshtml" />
+    <Content Include="Views\Ingredient\Details.cshtml" />
+    <Content Include="Views\Ingredient\Edit.cshtml" />
+    <Content Include="Views\Ingredient\Index.cshtml" />
     <Content Include="Views\RecipeViewModels\Create.cshtml" />
     <Content Include="Views\RecipeViewModels\Delete.cshtml" />
     <Content Include="Views\RecipeViewModels\Details.cshtml" />

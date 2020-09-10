@@ -25,11 +25,7 @@
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                    
+                <ul class="nav navbar-nav">                    
                     <li>
                         <div class="my-dropdown">
                             <button class="my-dropbtn">
@@ -62,9 +58,9 @@
                                 Ingredients
                             </button>
                             <div class="my-dropdown-content">
-                                @Html.ActionLink("View all", "Index", "IngredientViewModels")
+                                @Html.ActionLink("View all", "Index", "Ingredient")
                                 <a href="#">My ingredients</a>
-                                @Html.ActionLink("Add new", "Create", "IngredientViewModels")
+                                @Html.ActionLink("Add new", "Create", "Ingredient")
                             </div>
                         </div>
                     </li>

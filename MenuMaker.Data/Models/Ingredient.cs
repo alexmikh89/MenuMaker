@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MenuMaker.Data.Models
 {
-    public class Ingredient : IEntity
+    public class Ingredient : INextEntity<int>
     {
         public int Id { get; set; }
         public string Name { get; set; }
