@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MenuMaker.Models.BuyListViewModel>
+
+@{
+    ViewBag.Title = "GenerateBuyList";
+    //Layout = "_BuyListLayout.cshtml";
+}
+
+<h2>BuyList for menu #@ViewData["MenuId"].</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table" width="800px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+        </tr>
+    }
+
+</table>

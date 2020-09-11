@@ -12,5 +12,7 @@ namespace MenuMaker.Business.Interfaces
         IEnumerable<MenuModel> GetAll(Func<MenuModel, bool> func);
         void Remove(int id);
         void Update(MenuEditModel  menuEditModel);
+        IEnumerable<BuyListModel> GetBuyList(int id);
+
     }
 }

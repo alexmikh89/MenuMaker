@@ -123,5 +123,13 @@ namespace MenuMaker.Controllers
 
             return View(menuEditVM);
         }
+
+        public ActionResult GenerateBuyList(int id)
+        {
+            var buyModels = _menuManager.GetBuyList(id);
+            var buyViewModels = _mapper.Map<IEnumerable<BuyListViewModel>>(buyModels);
+            ViewData["MenuId"] = id;
+            return View(buyViewModels);
+        }
     }
 }

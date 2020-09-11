@@ -12,8 +12,8 @@ namespace MenuMaker.Data
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
             var adminRole = new IdentityRole { Name = "admin" };
-            var userRole = new IdentityRole { Name = "author" };
-            var superUserRole = new IdentityRole { Name = "user" };
+            var userRole = new IdentityRole { Name = "user" };
+            var superUserRole = new IdentityRole { Name = "superUser" };
 
             roleManager.Create(adminRole);
             roleManager.Create(userRole);

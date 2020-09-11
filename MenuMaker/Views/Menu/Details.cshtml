@@ -56,5 +56,6 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Generate buy list", "GenerateBuyList", new { id = Model.Id })
 </div>

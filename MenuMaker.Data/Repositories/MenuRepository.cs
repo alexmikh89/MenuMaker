@@ -51,8 +51,14 @@ namespace MenuMaker.Data.Repositories
                 {
                     ctx.Entry(menuRecipe).Reference(i => i.Recipe).Load();
                     ctx.Entry(menuRecipe).Reference(i => i.Day).Load();
-                }
+                    ctx.Entry(menuRecipe.Recipe).Collection(i => i.RecipeIngredients).Load();
 
+                    foreach (var recipeIngredients in menuRecipe.Recipe.RecipeIngredients)
+                    {
+                        ctx.Entry(recipeIngredients).Reference(i=>i.Ingredient).Load();
+
+                    }
+                }
                 return result;
             }
         }

@@ -5,6 +5,7 @@ using MenuMaker.Data.Interfaces;
 using MenuMaker.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MenuMaker.Business.Managers
 {
@@ -81,6 +82,33 @@ namespace MenuMaker.Business.Managers
                 }
             }
             _menuRepository.Update(editedMenu);
+        }
+
+        public IEnumerable<BuyListModel> GetBuyList(int id)
+        {
+            var menu = FindById(id);
+            var personsCount = menu.PersonsCount;
+
+            var menuRecipeModels = menu.MenuRecipes.ToList();
+
+            var ingredients = new List<RecipeIngredientsModel>();
+
+            foreach (var menuRecipeModel in menuRecipeModels)
+            {
+                foreach (var recipeIngredient in menuRecipeModel.Recipe.RecipeIngredients.ToList())
+                {
+                    ingredients.Add(recipeIngredient);
+                }
+            }
+
+            List<BuyListModel> result = ingredients
+                .GroupBy(i => i.IngredientId).Select(c => new BuyListModel
+                {  Id = c.First().IngredientId,
+                    ProductName = c.First().Ingredient.Name,
+                 Amount = c.Sum(j=>j.Amount)
+                }).ToList();
+
+            return result;
         }
     }
 }

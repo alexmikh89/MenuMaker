@@ -19,7 +19,6 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<RecipeModel, RecipeViewModel>().ReverseMap();
                 cfg.CreateMap<Func<RecipeModel, bool>, Func<RecipeViewModel, bool>>().ReverseMap();
 
-                //cfg.CreateMap<CreatedRecipe, CreatedRecipeModel>().ReverseMap();
                 cfg.CreateMap<CreatedRecipePostModel, RecipeModel>().ReverseMap();
 
                 cfg.CreateMap<RecipeIngredients, RecipeIngredientsModel>().ReverseMap();
@@ -60,6 +59,9 @@ namespace MenuMaker.Autofac
                 cfg.CreateMap<Recipe, CreatedRecipeModel>().ForMember(i => i.RecipeName, j => j.MapFrom(src => src.Name)).ReverseMap();
                 cfg.CreateMap<CreatedRecipeModel, RecipeModel>().ForMember(i => i.Name, j => j.MapFrom(src => src.RecipeName)).ReverseMap();
                 cfg.CreateMap<CreatedRecipePostModel, CreatedRecipeModel>().ForMember(i=>i.RecipeName, j=>j.MapFrom(src=>src.Name)).ReverseMap();
+
+                //BuyListMappings
+                cfg.CreateMap<BuyListModel, BuyListViewModel>().ReverseMap();
 
 
             }))
