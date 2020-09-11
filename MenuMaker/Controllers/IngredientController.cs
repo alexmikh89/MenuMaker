@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
+    [Authorize]
     public class IngredientController : Controller
     {
         private readonly IIngredientManager _ingredientManager;

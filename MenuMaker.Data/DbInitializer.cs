@@ -31,8 +31,8 @@ namespace MenuMaker.Data
             if (adminSaveResult.Succeeded)
             {
                 userManager.AddToRole(admin.Id, adminRole.Name);
-                userManager.AddToRole(admin.Id, adminRole.Name);
-                userManager.AddToRole(admin.Id, adminRole.Name);
+                userManager.AddToRole(admin.Id, userRole.Name);
+                userManager.AddToRole(admin.Id, superUserRole.Name);
             }
 
             var user = new ApplicationUser
@@ -44,8 +44,6 @@ namespace MenuMaker.Data
             var userSaveResult = userManager.Create(user, userPassword);
             if (userSaveResult.Succeeded)
             {
-                userManager.AddToRole(user.Id, userRole.Name);
-                userManager.AddToRole(user.Id, userRole.Name);
                 userManager.AddToRole(user.Id, userRole.Name);
             }
 
@@ -59,8 +57,7 @@ namespace MenuMaker.Data
             if (superUserSaveResult.Succeeded)
             {
                 userManager.AddToRole(superUser.Id, superUserRole.Name);
-                userManager.AddToRole(superUser.Id, superUserRole.Name);
-                userManager.AddToRole(superUser.Id, superUserRole.Name);
+                userManager.AddToRole(superUser.Id, userRole.Name);
             }
 
             context.Days.AddRange(new List<Day>() {

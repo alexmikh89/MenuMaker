@@ -9,6 +9,8 @@ using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
+    [Authorize(Roles = "admin")]
+
     public class MenuController : Controller
     {
         private readonly IMapper _mapper;

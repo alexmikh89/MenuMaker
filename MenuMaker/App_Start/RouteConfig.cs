@@ -12,9 +12,9 @@ namespace MenuMaker
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                //defaults: new { controller = "Recipe", action = "Create", id = UrlParameter.Optional }
+                defaults: new { controller = "Recipe", action = "Create", id = UrlParameter.Optional }
                 //defaults: new { controller = "menu", action = "edit", id = 7 }
-                defaults: new { controller = "menu", action = "GenerateBuyList", id = 7 }
+                //defaults: new { controller = "menu", action = "GenerateBuyList", id = 7 }
            );
         }
     }

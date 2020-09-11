@@ -18,17 +18,14 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-
+            @Html.LabelFor(model => model.Description)
         </dt>
         <dd>
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "5", @value = Model.Description, @disabled = "true" })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            @Model.Description
         </dd>
+        <dt>
+            L'a Image:
+        </dt>
         <dd>
             @if (Model.ImagePath != null)
             {

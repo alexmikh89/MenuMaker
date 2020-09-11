@@ -38,3 +38,11 @@ textarea {
 .recipe-input-fields .btn{
     margin-top:-3px;
 }
+
+.nav.navbar-nav{
+    padding-top:6px;
+}
+
+.dl-horizontal {
+    overflow: hidden;
+}

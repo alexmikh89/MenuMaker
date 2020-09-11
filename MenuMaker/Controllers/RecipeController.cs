@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace MenuMaker.Controllers
 {
+    [Authorize(Roles="superUser")]
     public class RecipeController : Controller
     {
         private readonly IMapper _mapper;

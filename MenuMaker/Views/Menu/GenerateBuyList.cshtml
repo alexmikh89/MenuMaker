@@ -32,8 +32,6 @@
 
 </table>
 
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        @Html.ActionLink("Get PDF", "GetPDF", new { id = Model.FirstOrDefault().MenuId })
-    </div>
+<div class="form-group">  
+        @Html.ActionLink("Get PDF", "GetPDF", new { id = Model.FirstOrDefault().MenuId }, new {target="_blank", @class="btn btn-success" })
 </div>

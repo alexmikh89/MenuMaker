@@ -23,33 +23,40 @@
                 </a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                    
-                    <li>
-                        <div class="my-dropdown">
-                            <button class="my-dropbtn">
-                                Menues
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="my-dropdown-content">
-                                @Html.ActionLink("View all", "Index", "Menu")
-                                @Html.ActionLink("Add new", "Create", "Menu")
-                                <a href="#">My menues</a>
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated && User.IsInRole("superUser"))
+                    {
+                        <li>
+                            <div class="my-dropdown">
+                                <button class="my-dropbtn">
+                                    Menues
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="my-dropdown-content">
+                                    @Html.ActionLink("View all", "Index", "Menu")
+                                    @Html.ActionLink("Add new", "Create", "Menu")
+                                    <a href="#">My menues</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div class="my-dropdown">
-                            <button class="my-dropbtn">
-                                Recipes
-                            </button>
-                            <div class="my-dropdown-content">
-                                @Html.ActionLink("View all", "Index", "Recipe")
-                                <a href="#">My recepies</a>
-                                @Html.ActionLink("Add new", "Create", "Recipe")
+                        </li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("User"))
+                    {
+
+
+                        <li>
+                            <div class="my-dropdown">
+                                <button class="my-dropbtn">
+                                    Recipes
+                                </button>
+                                <div class="my-dropdown-content">
+                                    @Html.ActionLink("View all", "Index", "Recipe")
+                                    <a href="#">My recepies</a>
+                                    @Html.ActionLink("Add new", "Create", "Recipe")
+                                </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
                     <li>
                         <div class="my-dropdown">
                             <button class="my-dropbtn">
@@ -62,6 +69,7 @@
                             </div>
                         </div>
                     </li>
+
                     <li>
                         <div class="my-dropdown">
                             <button class="my-dropbtn">
