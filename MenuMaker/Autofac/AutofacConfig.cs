@@ -18,10 +18,6 @@ namespace MenuMaker.Autofac
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            //
-            // Uncomment in case of IAPIController using.
-            //builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
-
             builder.RegisterType<DayRepository>().As<INextRepository<Day, int>>();
             builder.RegisterType<DayManager>().As<IDayManager>();
 
@@ -34,38 +30,17 @@ namespace MenuMaker.Autofac
             builder.RegisterType<RecipeRepository>().As<INextRepository<Recipe, int>>();
             builder.RegisterType<RecipeManager>().As<IRecipeManager>();
 
-            //builder.RegisterType<MenuRecipeRepository>().As<INextRepository<MenuRecipe, int>>();
-            //builder.RegisterType<MenuRecipeManager>().As<IMenuRecipeManager>();
-
-
-
-            //builder.RegisterType<EntityRepository<Ingredient>>().As<IRepository<Ingredient>>();
-            //builder.RegisterType<EntityRepository<Recipe>>().As<IRepository<Recipe>>();
-            //builder.RegisterType<RecipeRepository<RecipeIngredients>>().As<IRepository<RecipeIngredients>>();
-
-
-
-
-
-
             builder.RegisterType<EntityManager<Ingredient, IngredientModel>>()
                 .As<IEntityManager<Ingredient, IngredientModel>>();
             builder.RegisterType<EntityManager<Recipe, RecipeModel>>()
                 .As<IEntityManager<Recipe, RecipeModel>>();
             builder.RegisterType<EntityManager<RecipeIngredients, RecipeIngredientsModel>>()
                 .As<IEntityManager<RecipeIngredients, RecipeIngredientsModel>>();
-
             builder.RegisterType<RecipeManager>().As<IRecipeManager>();
-
             builder.RegisterModule<MapperAutofacModule>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
-            //
-            // Uncomment in case of IAPIController using.
-            //var config = GlobalConfiguration.Configuration;
-            //config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
 }
