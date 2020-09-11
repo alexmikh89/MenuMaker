@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using MenuMaker.Data.Models;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace MenuMaker.Data
@@ -60,6 +62,16 @@ namespace MenuMaker.Data
                 userManager.AddToRole(superUser.Id, superUserRole.Name);
                 userManager.AddToRole(superUser.Id, superUserRole.Name);
             }
+
+            context.Days.AddRange(new List<Day>() {
+            new Day(){ Id=1, Name = "Monday"},
+            new Day(){ Id=2, Name = "Tuesday"},
+            new Day(){ Id=3, Name = "Wednesday"},
+            new Day(){ Id=4, Name = "Thursday"},
+            new Day(){ Id=5, Name = "Friday"},
+            new Day(){ Id=6, Name = "Saturday"},
+            new Day(){ Id=7, Name = "Sunday"}
+            });
 
             context.SaveChanges();
         }
