@@ -35,12 +35,11 @@
                                 <div class="my-dropdown-content">
                                     @Html.ActionLink("View all", "Index", "Menu")
                                     @Html.ActionLink("Add new", "Create", "Menu")
-                                    <a href="#">My menues</a>
                                 </div>
                             </div>
                         </li>
                     }
-                    @if (Request.IsAuthenticated && User.IsInRole("User"))
+                    @if (Request.IsAuthenticated && User.IsInRole("user"))
                     {
                         <li>
                             <div class="my-dropdown">
@@ -49,7 +48,6 @@
                                 </button>
                                 <div class="my-dropdown-content">
                                     @Html.ActionLink("View all", "Index", "Recipe")
-                                    <a href="#">My recepies</a>
                                     @Html.ActionLink("Add new", "Create", "Recipe")
                                 </div>
                             </div>
@@ -64,7 +62,6 @@
                                 </button>
                                 <div class="my-dropdown-content">
                                     @Html.ActionLink("View all", "Index", "Ingredient")
-                                    <a href="#">My ingredients</a>
                                     @Html.ActionLink("Add new", "Create", "Ingredient")
                                 </div>
                             </div>

@@ -18,7 +18,6 @@ namespace MenuMaker.Controllers
         private readonly IRecipeManager _recipeManager;
         private readonly IIngredientManager _ingredientManager;
 
-
         public RecipeController(IMapper mapper, IRecipeManager recipeManager, IIngredientManager ingredientManager)
         {
             _mapper = mapper;
