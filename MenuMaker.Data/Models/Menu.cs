@@ -9,6 +9,8 @@ namespace MenuMaker.Data.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int PersonsCount { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
         public ICollection<MenuRecipe> MenuRecipes { get; set; }
         public Menu()
         {
