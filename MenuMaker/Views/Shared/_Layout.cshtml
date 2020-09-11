@@ -42,8 +42,6 @@
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("User"))
                     {
-
-
                         <li>
                             <div class="my-dropdown">
                                 <button class="my-dropbtn">
@@ -57,31 +55,21 @@
                             </div>
                         </li>
                     }
-                    <li>
-                        <div class="my-dropdown">
-                            <button class="my-dropbtn">
-                                Ingredients
-                            </button>
-                            <div class="my-dropdown-content">
-                                @Html.ActionLink("View all", "Index", "Ingredient")
-                                <a href="#">My ingredients</a>
-                                @Html.ActionLink("Add new", "Create", "Ingredient")
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <div class="my-dropdown">
+                                <button class="my-dropbtn">
+                                    Ingredients
+                                </button>
+                                <div class="my-dropdown-content">
+                                    @Html.ActionLink("View all", "Index", "Ingredient")
+                                    <a href="#">My ingredients</a>
+                                    @Html.ActionLink("Add new", "Create", "Ingredient")
+                                </div>
                             </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="my-dropdown">
-                            <button class="my-dropbtn">
-                                Users
-                            </button>
-                            <div class="my-dropdown-content">
-                                <a href="#">Change user's role</a>
-                                <a href="#">Remove user</a>
-                                <a href="#">Ban user</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
