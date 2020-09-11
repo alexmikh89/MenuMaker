@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MenuMaker.Data;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 
@@ -13,6 +14,8 @@ namespace MenuMaker.Models
         public int[] IngredientId { get; set; }
         public double[] Amount { get; set; }
         public string ImagePath { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }

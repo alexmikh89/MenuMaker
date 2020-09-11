@@ -135,6 +135,10 @@
     <Compile Include="Migrations\202009110857359_Add-UserId-For_Menu.Designer.cs">
       <DependentUpon>202009110857359_Add-UserId-For_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009110902188_Add-UserId-For_Recipe.cs" />
+    <Compile Include="Migrations\202009110902188_Add-UserId-For_Recipe.Designer.cs">
+      <DependentUpon>202009110902188_Add-UserId-For_Recipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009110857359_Add-UserId-For_Menu.resx">
       <DependentUpon>202009110857359_Add-UserId-For_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009110902188_Add-UserId-For_Recipe.resx">
+      <DependentUpon>202009110902188_Add-UserId-For_Recipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
