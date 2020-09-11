@@ -33,8 +33,6 @@ namespace MenuMaker.Data.Repositories
 
                 return addedMenuId;
             }
-
-
         }
         public override Menu FindById(int id)
         {

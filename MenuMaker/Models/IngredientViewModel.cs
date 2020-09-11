@@ -1,9 +1,8 @@
-﻿using MenuMaker.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MenuMaker.Models
 {
-    public class IngredientViewModel : IEntityViewModel
+    public class IngredientViewModel 
     {
         public int Id { get; set; }
         public string Name { get; set; }

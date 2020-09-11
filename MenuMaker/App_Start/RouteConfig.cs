@@ -12,8 +12,8 @@ namespace MenuMaker
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                //defaults: new { controller = "RecipeViewModels", action = "Create", id = UrlParameter.Optional }
-                defaults: new { controller = "Menu", action = "edit", id = 7 }
+                //defaults: new { controller = "Recipe", action = "Create", id = UrlParameter.Optional }
+                defaults: new { controller = "recipe", action = "details", id = 1 }
             );
         }
     }

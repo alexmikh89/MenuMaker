@@ -1,0 +1,61 @@
+﻿@model MenuMaker.Models.RecipeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    var ingredients = Model.RecipeIngredients.ToList();
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Recipe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        </dt>
+        <dd>
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = "5", @value = Model.Description, @disabled = "true" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </dd>
+        <dd>
+            @if (Model.ImagePath != null)
+            {
+                <img src="@Url.Content(Model.ImagePath)" width="200" />
+            }
+            else
+            {
+                <h3>No image loaded</h3>
+            }
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            Ingredients
+        </dt>
+        <dd>
+            @foreach (var ingredient in ingredients)
+            {
+                <div>
+                    @ingredient.Ingredient.Name
+                    @ingredient.Amount
+                </div>
+            }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

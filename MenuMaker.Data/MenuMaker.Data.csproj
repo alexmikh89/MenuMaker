@@ -60,6 +60,7 @@
     <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\INextEntity.cs" />
     <Compile Include="Interfaces\INextRepository.cs" />
+    <Compile Include="Interfaces\IRecipeRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.cs" />
     <Compile Include="Migrations\202008160934166_Initial_Create.Designer.cs">
@@ -125,6 +126,10 @@
     <Compile Include="Migrations\202009081721470_Add_primary_key_to_recipeIngredients.Designer.cs">
       <DependentUpon>202009081721470_Add_primary_key_to_recipeIngredients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009102341049_Add_description_for_recipe.cs" />
+    <Compile Include="Migrations\202009102341049_Add_description_for_recipe.Designer.cs">
+      <DependentUpon>202009102341049_Add_description_for_recipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -139,9 +144,8 @@
     <Compile Include="Repositories\DayRepository.cs" />
     <Compile Include="Repositories\EntityRepository.cs" />
     <Compile Include="Repositories\IngredientRepository.cs" />
-    <Compile Include="Repositories\MenuRecipeRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
-    <Compile Include="Repositories\RecipeIngredientRepository.cs" />
+    <Compile Include="Repositories\RecipeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -195,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009081721470_Add_primary_key_to_recipeIngredients.resx">
       <DependentUpon>202009081721470_Add_primary_key_to_recipeIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009102341049_Add_description_for_recipe.resx">
+      <DependentUpon>202009102341049_Add_description_for_recipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

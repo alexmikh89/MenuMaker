@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Models;
-using MenuMaker.Data.Models;
 using MenuMaker.Models;
+using System.Collections;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -14,11 +14,10 @@ namespace MenuMaker.Controllers
         private readonly IMenuManager _menuManager;
         private readonly IDayManager _dayManager;
 
-        private readonly IEntityManager<Recipe, RecipeModel> _recipeManager;
+        private readonly IRecipeManager _recipeManager;
 
         public MenuController(IMapper mapper, IMenuManager menuManager,
-            IEntityManager<Recipe, RecipeModel> recipeManager,
-            IDayManager dayManager)
+            IRecipeManager recipeManager, IDayManager dayManager)
         {
             _mapper = mapper;
             _menuManager = menuManager;

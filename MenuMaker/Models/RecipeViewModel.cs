@@ -1,18 +1,18 @@
-﻿using MenuMaker.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 
 namespace MenuMaker.Models
 {
-    public class RecipeViewModel : IEntityViewModel
+    public class RecipeViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public ICollection<RecipeIngredientsViewModel> RecipeIngredients { get; set; }
-
+        public string Description { get; set; }
         public string ImagePath { get; set; }
+        public ICollection<RecipeIngredientsViewModel> RecipeIngredients { get; set; }
+        public IEnumerable<IngredientViewModel> IngredientsDropDownList { get; set; }
+
 
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }

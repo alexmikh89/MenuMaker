@@ -31,14 +31,17 @@ namespace MenuMaker.Autofac
             builder.RegisterType<IngredientRepository>().As<INextRepository<Ingredient, int>>();
             builder.RegisterType<IngredientManager>().As<IIngredientManager>();
 
+            builder.RegisterType<RecipeRepository>().As<INextRepository<Recipe, int>>();
+            builder.RegisterType<RecipeManager>().As<IRecipeManager>();
+
             //builder.RegisterType<MenuRecipeRepository>().As<INextRepository<MenuRecipe, int>>();
             //builder.RegisterType<MenuRecipeManager>().As<IMenuRecipeManager>();
 
 
 
             //builder.RegisterType<EntityRepository<Ingredient>>().As<IRepository<Ingredient>>();
-            builder.RegisterType<EntityRepository<Recipe>>().As<IRepository<Recipe>>();
-            builder.RegisterType<RecipeIngredientRepository<RecipeIngredients>>().As<IRepository<RecipeIngredients>>();
+            //builder.RegisterType<EntityRepository<Recipe>>().As<IRepository<Recipe>>();
+            //builder.RegisterType<RecipeRepository<RecipeIngredients>>().As<IRepository<RecipeIngredients>>();
 
 
 
@@ -52,7 +55,7 @@ namespace MenuMaker.Autofac
             builder.RegisterType<EntityManager<RecipeIngredients, RecipeIngredientsModel>>()
                 .As<IEntityManager<RecipeIngredients, RecipeIngredientsModel>>();
 
-            builder.RegisterType<RecipeIngredientManager>().As<IRecipeIngredientsManager>();
+            builder.RegisterType<RecipeManager>().As<IRecipeManager>();
 
             builder.RegisterModule<MapperAutofacModule>();
 

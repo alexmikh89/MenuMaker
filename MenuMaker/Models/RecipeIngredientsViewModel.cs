@@ -1,5 +1,4 @@
-﻿using MenuMaker.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,6 +10,8 @@ namespace MenuMaker.Models
         public int Id { get; set; }
 
         public string RecipeName { get; set; }
+        public string Description { get; set; }
+
 
         public int RecipeId { get; set; }
         public RecipeViewModel Recipe { get; set; }
