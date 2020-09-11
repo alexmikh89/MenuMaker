@@ -6,6 +6,7 @@ namespace MenuMaker.Models
     {
         [Key]
         public int Id { get; set; }
+        public int MenuId { get; set; }
         public string ProductName { get; set; }
         public string Amount { get; set; }
     }

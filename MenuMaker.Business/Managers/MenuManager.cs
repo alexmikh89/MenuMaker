@@ -108,6 +108,8 @@ namespace MenuMaker.Business.Managers
                  Amount = c.Sum(j=>j.Amount)
                 }).ToList();
 
+            result.ForEach(i => i.MenuId = id);
+
             return result;
         }
     }

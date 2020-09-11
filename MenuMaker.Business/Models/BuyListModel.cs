@@ -11,6 +11,8 @@ namespace MenuMaker.Business.Models
     {
         [Key]
         public int Id { get; set; }
+        public int MenuId { get; set; }
+
         public string ProductName { get; set; }
         public double Amount { get; set; }
     }

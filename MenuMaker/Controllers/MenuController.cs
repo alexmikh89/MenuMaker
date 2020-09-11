@@ -2,6 +2,7 @@
 using MenuMaker.Business.Interfaces;
 using MenuMaker.Business.Models;
 using MenuMaker.Models;
+using Rotativa;
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -128,8 +129,15 @@ namespace MenuMaker.Controllers
         {
             var buyModels = _menuManager.GetBuyList(id);
             var buyViewModels = _mapper.Map<IEnumerable<BuyListViewModel>>(buyModels);
-            ViewData["MenuId"] = id;
             return View(buyViewModels);
+        }
+
+        public ActionResult GetPDF(int id)
+        {
+            var buyModels = _menuManager.GetBuyList(id);
+            var buyViewModels = _mapper.Map<IEnumerable<BuyListViewModel>>(buyModels);
+
+            return new ViewAsPdf("GenerateBuyList", buyViewModels);
         }
     }
 }

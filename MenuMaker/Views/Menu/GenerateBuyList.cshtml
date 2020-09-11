@@ -5,11 +5,8 @@
     //Layout = "_BuyListLayout.cshtml";
 }
 
-<h2>BuyList for menu #@ViewData["MenuId"].</h2>
+<h2>BuyList for menu #@Model.FirstOrDefault().MenuId</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table" width="800px">
     <tr>
         <th>
@@ -34,3 +31,9 @@
     }
 
 </table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Get PDF", "GetPDF", new { id = Model.FirstOrDefault().MenuId })
+    </div>
+</div>
