@@ -71,8 +71,8 @@ namespace MenuMaker.Controllers
                     string fileName = Path.GetFileNameWithoutExtension(createdRecipePostVM.ImageFile.FileName);
                     string extension = Path.GetExtension(createdRecipePostVM.ImageFile.FileName);
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                    createdRecipePostVM.ImageFile.SaveAs(fileName);
+                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    createdRecipePostVM.ImageFile.SaveAs(path);
                     createdRecipePostVM.ImagePath = "~/Images/" + fileName;
                 }
 
@@ -107,6 +107,15 @@ namespace MenuMaker.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (recipeViewModel.ImageFile != null)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(recipeViewModel.ImageFile.FileName);
+                    string extension = Path.GetExtension(recipeViewModel.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    recipeViewModel.ImageFile.SaveAs(path);
+                    recipeViewModel.ImagePath = "~/Images/" + fileName;
+                }
                 var recipeModel = _mapper.Map<CreatedRecipeModel>(recipeViewModel);
 
                 _recipeManager.Update(recipeModel);

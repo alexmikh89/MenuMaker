@@ -35,6 +35,35 @@
 
 
 
+        <div class="form-group">
+            @Html.Label("Picture", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (Model.ImagePath != null)
+                {
+                    <img src="@Url.Content(Model.ImagePath)" width="200" />
+                }
+                else
+                {
+                    <h3>No image loaded</h3>
+                }
+            </div>
+        </div>
+       
+
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                @Html.Label("Picture")
+            </div>
+            <div class="col-md-10">
+                <label for="choose-a-file-btn" class="btn btn-default">Browse..</label>
+                <input type="file" name="ImageFile" @*required*@ id="choose-a-file-btn" style="visibility:hidden; height:0;">
+            </div>
+        </div>
+
+
+
         <div class="week-day">
 
             <div class="hidden">
@@ -55,7 +84,6 @@
                             @Html.ValidationMessage("Amount", "", new { @class = "text-danger" })
                         </div>
                     </div>
-
                 </div>
             </div>
 
