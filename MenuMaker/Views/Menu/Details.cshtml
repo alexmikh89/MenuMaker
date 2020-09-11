@@ -38,12 +38,23 @@
         @foreach (var weekDay in weekDays)
         {
             var currentDayRecipes = Model.MenuRecipes.Where(i => i.DayId == weekDay.Id).ToList();
-
-            @Html.Partial("DayCellPartView", currentDayRecipes)
+            <dt>
+                @weekDay.Name
+            </dt>
+            if (currentDayRecipes != null)
+            {
+                @Html.Partial("DayCellPartView", currentDayRecipes);
+            }
+            else
+            {
+                <dd>
+                    @Html.Label("No meal for this day");
+                </dd>
+            }
         }
     </dl>
 </div>
-<p>
+<div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

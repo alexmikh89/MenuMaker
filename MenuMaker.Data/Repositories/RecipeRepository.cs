@@ -31,7 +31,6 @@ namespace MenuMaker.Data.Repositories
                 ctx.Entry(result).Collection(i => i.RecipeIngredients).Load();
                 ctx.Entry(result).Collection(i => i.MenuRecipes).Load();
 
-
                 foreach (var recipeIngredient in result.RecipeIngredients)
                 {
                     ctx.Entry(recipeIngredient).Reference(i => i.Ingredient).Load();
@@ -101,7 +100,6 @@ namespace MenuMaker.Data.Repositories
                 }
 
                 dbRecipeSet.AddOrUpdate(newRecipe);
-
                 ctx.SaveChanges();
             }
         }

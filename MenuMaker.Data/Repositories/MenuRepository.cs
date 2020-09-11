@@ -1,4 +1,5 @@
 ﻿using MenuMaker.Data.Models;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace MenuMaker.Data.Repositories
@@ -110,6 +111,7 @@ namespace MenuMaker.Data.Repositories
                         });
                 }
 
+                dbMenuSet.AddOrUpdate(newMenu);
                 ctx.SaveChanges();
             }
         }

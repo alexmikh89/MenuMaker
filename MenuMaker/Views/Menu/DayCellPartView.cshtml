@@ -1,8 +1,5 @@
 ﻿@model IEnumerable<MenuMaker.Models.MenuRecipeViewModel>
 
-<dt>
-    @Model.FirstOrDefault().Day.Name
-</dt>
 @foreach (var item in Model)
 {
     <dd>
