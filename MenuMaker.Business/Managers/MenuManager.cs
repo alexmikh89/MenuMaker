@@ -105,7 +105,7 @@ namespace MenuMaker.Business.Managers
                 .GroupBy(i => i.IngredientId).Select(c => new BuyListModel
                 {  Id = c.First().IngredientId,
                     ProductName = c.First().Ingredient.Name,
-                 Amount = c.Sum(j=>j.Amount)
+                 Amount = c.Sum(j=>j.Amount)/**personsCount*/
                 }).ToList();
 
             result.ForEach(i => i.MenuId = id);
