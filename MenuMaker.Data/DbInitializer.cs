@@ -70,6 +70,22 @@ namespace MenuMaker.Data
             new Day(){ Id=7, Name = "Sunday"}
             });
 
+            context.Ingridients.AddRange(new List<Ingredient>() { 
+            new Ingredient(){  Name = "Potato"},
+            new Ingredient(){  Name = "Fish"},
+            new Ingredient(){  Name = "Beer"},
+            new Ingredient(){  Name = "Wine"},
+            new Ingredient(){  Name = "Sugar"},
+            new Ingredient(){  Name = "Milk"},
+            new Ingredient(){  Name = "Flour"},
+            new Ingredient(){  Name = "Meat"},
+            new Ingredient(){  Name = "Strawberry"},
+            new Ingredient(){  Name = "Peach"},
+            new Ingredient(){  Name = "XXX"},
+            });
+
+
+
             context.SaveChanges();
         }
     }
