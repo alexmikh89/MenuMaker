@@ -10,7 +10,7 @@ namespace MenuMaker
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            RolesInitializer.Initialize();
+            //Initializer.Initialize();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MenuMaker.Data
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new DbInitializer());
         }
 
         public static ApplicationDbContext Create()
